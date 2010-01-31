@@ -1,0 +1,17 @@
+* VMs
+ * Discard state
+ * Edit settings
+ * Export a VM
+ * Import a VM
+ * Snapshots (virtualbox gem doesn't support this yet)
+ * Create a VM (virtualbox gem doesn't support this yet)
+
+* HDs
+ * Listing in the menu
+ * Viewing of values and VMs using it
+ * Release a HD
+ * Remove a HD once released
+ * Create a HD
+
+* Misc
+ * Console

@@ -1,0 +1,10 @@
+<div id="network" class="data_box">
+  <div class="heading">Network</div>
+  <% @vm.nics.each_with_index do |nic, index| %>
+  <% next if nic.nic == 'none' %>
+  <div class="data">
+    <div class="label">Adapter <%= index + 1 %>:</div>
+    <div class="value"><%= nic.nic.upcase %></div>
+  </div>
+  <% end %>
+</div>

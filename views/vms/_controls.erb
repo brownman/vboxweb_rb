@@ -1,0 +1,46 @@
+<div id="actions">
+  <% if @vm.powered_off? || @vm.saved? || @vm.aborted? %>
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/start_16px', 'Start'), "/vm/#{@vm.uuid}/start") %></div>
+    <div class="label"><%= link_to('Start', "/vm/#{@vm.uuid}/start") %></div>
+  </div>
+  <% end %>
+
+  <% if @vm.running? || @vm.paused? %>
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/shutdown_16px', 'Shutdown'), "/vm/#{@vm.uuid}/shutdown") %></div>
+    <div class="label"><%= link_to('Shutdown', "/vm/#{@vm.uuid}/shutdown") %></div>
+  </div>
+
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/poweroff_16px', 'Power off'), "/vm/#{@vm.uuid}/poweroff") %></div>
+    <div class="label"><%= link_to('Power Off', "/vm/#{@vm.uuid}/poweroff") %></div>
+  </div>
+
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/save_16px', 'Save'), "/vm/#{@vm.uuid}/save") %></div>
+    <div class="label"><%= link_to('Save', "/vm/#{@vm.uuid}/save") %></div>
+  </div>
+  <% end %>
+
+  <% if @vm.running? %>
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/pause_16px', 'Pause'), "/vm/#{@vm.uuid}/pause") %></div>
+    <div class="label"><%= link_to('Pause', "/vm/#{@vm.uuid}/pause") %></div>
+  </div>
+  <% end %>
+
+  <% if @vm.paused? %>
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/start_16px', 'Resume'), "/vm/#{@vm.uuid}/resume") %></div>
+    <div class="label"><%= link_to('Resume', "/vm/#{@vm.uuid}/resume") %></div>
+  </div>
+  <% end %>
+
+  <div class="action refresh">
+    <div class="icon"><%= link_to(vbicon('controls/refresh_16px', 'Refresh'), "/vm/#{@vm.uuid}") %></div>
+    <div class="label"><%= link_to('Refresh', "/vm/#{@vm.uuid}") %></div>
+  </div>
+
+  <div style="clear:both;"></div>
+</div>

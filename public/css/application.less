@@ -1,0 +1,149 @@
+body {
+  font-family: Arial;
+  font-size: 14px;
+}
+
+#container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+#header {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #000;
+}
+
+.flash {
+  padding: 10px;
+  margin: 10px 0;
+}
+
+#notice {
+  background-color: #f9f3cd;
+  border: 1px solid #baae8b;
+}
+
+#error {
+  background-color: #FF6666;
+  border: 1px solid #FF0000;
+}
+
+#menu {
+  float: left;
+  width: 220px;
+  border: 1px solid #000;
+
+  #vm_list {
+    width: 100%;
+
+    h2 {
+      margin: 10px;
+    }
+    .record {
+      padding: 10px;
+      background-color: #E2E2E2;
+
+      .icon {
+        float: left;
+        margin-right: 10px;
+      }
+      .name {
+        font-weight: bold;
+      }
+      .name a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+    .record.current {
+      background-color: #8D8D8D;
+    }
+  }
+
+}
+
+#info {
+  float: right;
+  width: 700px;
+  padding: 10px;
+  border: 1px solid #000;
+
+  #actions {
+    margin-bottom: 15px;
+    border: 1px solid #000;
+
+    .action {
+      padding: 3px 10px;
+      float: left;
+      text-align: center;
+
+      :hover {
+        background-color: #E2E2E2;
+      }
+      img {
+        border: 0;
+      }
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+    .action.refresh {
+      float: right;
+    }
+  }
+
+  .data_box {
+    clear: both;
+    margin-bottom: 30px;
+
+    .heading {
+      font-weight: bold;
+      height: 16px;
+      padding-left: 20px;
+    }
+    .data {
+      clear: both;
+      margin-left: 20px;
+
+      .label {
+        width: 180px;
+        float: left;
+      }
+      .value {
+        width: 480px;
+        float: right;
+      }
+    }
+  }
+
+  #general.data_box .heading {
+    background: transparent url(/images/virtualbox/icons/general_16px.png) no-repeat;
+  }
+  #system.data_box .heading {
+    background: transparent url(/images/virtualbox/icons/system_16px.png) no-repeat;
+  }
+  #display.data_box .heading {
+    background: transparent url(/images/virtualbox/icons/display_16px.png) no-repeat;
+  }
+  #storage.data_box .heading {
+    background: transparent url(/images/virtualbox/icons/storage_16px.png) no-repeat;
+  }
+  #audio.data_box .heading {
+    background: transparent url(/images/virtualbox/icons/audio_16px.png) no-repeat;
+  }
+  #network.data_box .heading {
+    background: transparent url(/images/virtualbox/icons/network_16px.png) no-repeat;
+  }
+  #shared_folders.data_box .heading {
+    background: transparent url(/images/virtualbox/icons/shared_folders_16px.png) no-repeat;
+  }
+}
+
+#footer {
+  padding: 15px;
+  margin: 10px 0;
+  text-align: center;
+  border: 1px solid #000;
+}
