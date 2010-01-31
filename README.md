@@ -1,6 +1,6 @@
-# VirtualBox Web Interface
+# VirtualBox Web Interface (vboxweb_rb)
 
-A recreation of the VirtualBox GUI for the web
+A recreation of the VirtualBox GUI for the web using Ruby
 
 Very limited features at the moment. See Changelog.md and TODO
 
@@ -19,4 +19,4 @@ vboxmanage to the path of the VBoxManage executable on your system
 
 Then start the app:
 
-    ruby virtualbox_web.rb
+    ruby vboxweb.rb
