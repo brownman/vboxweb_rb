@@ -6,12 +6,14 @@
   </div>
   <% end %>
 
-  <% if @vm.running? || @vm.paused? %>
+  <% if @vm.running? %>
   <div class="action">
     <div class="icon"><%= link_to(vbicon('controls/shutdown_16px', 'Shutdown'), "/vm/#{@vm.uuid}/shutdown") %></div>
     <div class="label"><%= link_to('Shutdown', "/vm/#{@vm.uuid}/shutdown") %></div>
   </div>
+  <% end %>
 
+  <% if @vm.running? || @vm.paused? %>
   <div class="action">
     <div class="icon"><%= link_to(vbicon('controls/poweroff_16px', 'Power off'), "/vm/#{@vm.uuid}/poweroff") %></div>
     <div class="label"><%= link_to('Power Off', "/vm/#{@vm.uuid}/poweroff") %></div>
