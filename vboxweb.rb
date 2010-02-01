@@ -70,8 +70,11 @@ get "/vm/:uuid/:action" do
   when 'save'
     @vm.save_state(true)
     flash[:notice] = "#{@vm.name} has been saved. You may resume at any time by pressing 'Start'."
+  when 'discard'
+    @vm.discard_state(true)
+    flash[:notice] = "#{@vm.name} saved state has been discarded."
   else
-    flash[:error] = "Unsupported Virtual Machine Operation #{params[:action]}"
+    flash[:error] = "Unsupported Virtual Machine Operation '#{params[:action]}'"
   end
 
   redirect "/vm/#{params[:uuid]}"
