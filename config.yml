@@ -1,4 +1,4 @@
 ---
 username: admin
 password: test
-vboxmanage: vboxmanage
+vboxmanage: VBoxManage
