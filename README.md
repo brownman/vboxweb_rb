@@ -15,9 +15,13 @@ Then run the following in a shell console:
 Then configure config.yml, changing the username, password and pointing
 vboxmanage to the path of the VBoxManage executable on your system
 
-Then start the app:
+Start the app:
 
     ruby vboxweb.rb
+
+Then start using it:
+
+    http://localhost:4567
 
 ## Screenshot
 
