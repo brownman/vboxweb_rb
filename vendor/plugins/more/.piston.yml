@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 23fddefc5172d8287d11eb7fea77bda66c54e17f
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/cloudhead/more.git

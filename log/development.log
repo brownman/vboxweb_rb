@@ -1,0 +1,502 @@
+/!\ FAILSAFE /!\  Tue Feb 02 17:38:42 +1300 2010
+  Status: 500 Internal Server Error
+  Expected /Users/kieran/vboxweb_rb/app/helpers/vm_helper.rb to define VmHelper
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:426:in `load_missing_constant'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:80:in `const_missing'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:92:in `const_missing'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/inflector.rb:361:in `constantize'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/inflector.rb:360:in `each'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/inflector.rb:360:in `constantize'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:137:in `helper'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:115:in `each'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:115:in `helper'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:120:in `helper'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:115:in `each'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:115:in `helper'
+    /Users/kieran/vboxweb_rb/app/controllers/application_controller.rb:5
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:380:in `load_file'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:379:in `load_file'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:80:in `const_missing'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:92:in `const_missing'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2010-02-02 17:39:43) [GET]
+Filter chain halted as [:password_protect] rendered_or_redirected.
+Completed in 2ms (View: 2 | 401 Unauthorized [http://localhost/]
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2010-02-02 17:39:46) [GET]
+Rendering template within layouts/application
+Rendering homepage/index
+
+ActionView::TemplateError (Missing layout layouts/__vms.erb in view path app/views:vendor/plugins/more/app/views) on line #25 of app/views/layouts/application.html.erb:
+22:     <% end %>
+23: 
+24:     <div id="menu">
+25:       <%= render 'layouts/_vms' %>
+26:     </div>
+27: 
+28:     <div id="info">
+
+    app/views/layouts/application.html.erb:25
+
+Rendered rescues/_trace (51.3ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2010-02-02 17:40:05) [GET]
+Rendering template within layouts/application
+Rendering homepage/index
+
+ActionView::TemplateError (Missing template homepage/_vms.erb in view path app/views:vendor/plugins/more/app/views) on line #25 of app/views/layouts/application.html.erb:
+22:     <% end %>
+23: 
+24:     <div id="menu">
+25:       <%= render 'vms' %>
+26:     </div>
+27: 
+28:     <div id="info">
+
+    app/views/layouts/application.html.erb:25
+
+Rendered rescues/_trace (124.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2010-02-02 17:40:13) [GET]
+Rendering template within layouts/application
+Rendering homepage/index
+Rendered layouts/_vms (4072.6ms)
+Completed in 4087ms (View: 4086 | 200 OK [http://localhost/]
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2010-02-02 17:45:52) [GET]
+Rendering template within layouts/application
+Rendering homepage/index
+Rendered layouts/_vms (2373.1ms)
+Completed in 2398ms (View: 2397 | 200 OK [http://localhost/]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:45:58) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (4.2ms)
+Rendered vm/_general (0.7ms)
+Rendered vm/_system (0.9ms)
+Rendered vm/_display (0.8ms)
+Rendered vm/_storage (0.9ms)
+Rendered vm/_audio (0.6ms)
+Rendered vm/_network (0.8ms)
+Rendered vm/_serial_ports (0.5ms)
+Rendered vm/_usb (0.5ms)
+Rendered vm/_shared_folders (0.7ms)
+Rendered layouts/_vms (2053.3ms)
+Completed in 2799ms (View: 2223 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:46:01) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (1.3ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (0.1ms)
+Rendered vm/_display (0.1ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.1ms)
+Rendered vm/_network (0.2ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2033.9ms)
+Completed in 2545ms (View: 2045 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:56:04) [GET]
+  Parameters: {"uuid"=>"90d5c90b-4e4b-4895-b7b4-84ded2126757"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (61.4ms)
+Rendered vm/_general (0.7ms)
+Rendered vm/_system (46.1ms)
+Rendered vm/_display (8.2ms)
+Rendered vm/_storage (1.0ms)
+Rendered vm/_audio (0.6ms)
+Rendered vm/_network (0.8ms)
+Rendered vm/_serial_ports (0.5ms)
+Rendered vm/_usb (0.5ms)
+Rendered vm/_shared_folders (1.5ms)
+Rendered layouts/_vms (2074.8ms)
+Completed in 3673ms (View: 2278 | 200 OK [http://localhost/vm/90d5c90b-4e4b-4895-b7b4-84ded2126757]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:56:10) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (1.7ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (1.9ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.1ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2034.0ms)
+Completed in 2645ms (View: 2050 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:56:13) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (1.9ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (2.2ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.3ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2264.9ms)
+Completed in 2789ms (View: 2278 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2010-02-02 17:56:18) [GET]
+Rendering template within layouts/application
+Rendering homepage/index
+Rendered layouts/_vms (2196.1ms)
+Completed in 2209ms (View: 2207 | 200 OK [http://localhost/]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:56:22) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (2.5ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (2.3ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.1ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2043.0ms)
+Completed in 2554ms (View: 2057 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:56:25) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (2.1ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (2.1ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.2ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2152.8ms)
+Completed in 2667ms (View: 2166 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:56:37) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (2.4ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (2.1ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.3ms)
+Rendered vm/_network (0.2ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2047.1ms)
+Completed in 2847ms (View: 2061 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:56:40) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (2.1ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (2.1ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.2ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.3ms)
+Rendered layouts/_vms (2156.6ms)
+Completed in 2681ms (View: 2172 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:56:54) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (1.8ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (2.2ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.2ms)
+Rendered vm/_network (0.2ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2004.0ms)
+Completed in 2736ms (View: 2017 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 17:56:56) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (2.2ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (1.9ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.3ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2007.7ms)
+Completed in 2526ms (View: 2023 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#start (for 127.0.0.1 at 2010-02-02 18:02:17) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+
+ActionController::UnknownAction (No action responded to start. Actions: execute and show):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing VmController#execute (for 127.0.0.1 at 2010-02-02 18:02:50) [GET]
+  Parameters: {"command"=>"start", "uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+
+NoMethodError (undefined method `redirect' for #<VmController:0x102587548>):
+  app/controllers/vm_controller.rb:35:in `execute'
+
+Rendered rescues/_trace (45.6ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 18:03:20) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (4.2ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (2.1ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.2ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2428.8ms)
+Completed in 3160ms (View: 2450 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 18:03:33) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (5.5ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (1.9ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.1ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2404.8ms)
+Completed in 3140ms (View: 2421 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 18:03:36) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (4.4ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (2.1ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.2ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2395.8ms)
+Completed in 3002ms (View: 2413 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#execute (for 127.0.0.1 at 2010-02-02 18:03:55) [GET]
+  Parameters: {"command"=>"pause", "uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Redirected to http://localhost:3000/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed
+Completed in 1274ms | 302 Found [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed/pause]
+
+
+Processing VmController#execute (for 127.0.0.1 at 2010-02-02 18:03:57) [GET]
+  Parameters: {"command"=>"pause", "uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+
+VirtualBox::Exceptions::CommandFailedException (ERROR: Already paused
+Details: code VBOX_E_INVALID_VM_STATE (0x80bb0002), component Console, interface IConsole, callee nsISupports
+Context: "Pause()" at line 108 of file VBoxManageControlVM.cpp
+):
+  virtualbox (0.4.2) lib/virtualbox/command.rb:33:in `vboxmanage'
+  virtualbox (0.4.2) lib/virtualbox/vm.rb:386:in `control'
+  virtualbox (0.4.2) lib/virtualbox/vm.rb:354:in `pause'
+  app/controllers/vm_controller.rb:20:in `execute'
+
+Rendered rescues/_trace (153.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 18:05:09) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (2.9ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (1.8ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.1ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2194.8ms)
+Completed in 2947ms (View: 2231 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 18:05:19) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (3.6ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (2.7ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.3ms)
+Rendered vm/_network (0.1ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2086.3ms)
+Completed in 2684ms (View: 2102 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#show (for 127.0.0.1 at 2010-02-02 18:05:22) [GET]
+  Parameters: {"uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Rendering template within layouts/application
+Rendering vm/show
+Rendered vm/_controls (6.2ms)
+Rendered vm/_general (0.1ms)
+Rendered vm/_system (2.4ms)
+Rendered vm/_display (0.2ms)
+Rendered vm/_storage (0.2ms)
+Rendered vm/_audio (0.2ms)
+Rendered vm/_network (0.2ms)
+Rendered vm/_serial_ports (0.1ms)
+Rendered vm/_usb (0.1ms)
+Rendered vm/_shared_folders (0.1ms)
+Rendered layouts/_vms (2066.1ms)
+Completed in 2749ms (View: 2085 | 200 OK [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed]
+
+
+Processing VmController#execute (for 127.0.0.1 at 2010-02-02 18:05:27) [GET]
+  Parameters: {"command"=>"resume", "uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+Redirected to http://localhost:3000/
+Completed in 593ms | 302 Found [http://localhost/vm/f5a0b568-d22a-4846-a7c1-bf4df67035ed/resume]
+
+
+Processing VmController#execute (for 127.0.0.1 at 2010-02-02 18:05:27) [GET]
+  Parameters: {"command"=>"resume", "uuid"=>"f5a0b568-d22a-4846-a7c1-bf4df67035ed"}
+
+VirtualBox::Exceptions::CommandFailedException (ERROR: Cannot resume the machine as it is not paused (machine state: Running)
+Details: code VBOX_E_INVALID_VM_STATE (0x80bb0002), component Console, interface IConsole, callee nsISupports
+Context: "Resume()" at line 112 of file VBoxManageControlVM.cpp
+):
+  virtualbox (0.4.2) lib/virtualbox/command.rb:33:in `vboxmanage'
+  virtualbox (0.4.2) lib/virtualbox/vm.rb:386:in `control'
+  virtualbox (0.4.2) lib/virtualbox/vm.rb:363:in `resume'
+  app/controllers/vm_controller.rb:23:in `execute'
+
+Rendered rescues/_trace (47.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)

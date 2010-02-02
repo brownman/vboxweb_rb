@@ -1,0 +1,19 @@
+<div id="display" class="data_box">
+  <div class="heading">Display</div>
+  <div class="data">
+    <div class="label">Video Memory:</div>
+    <div class="value"><%= number_with_delimiter(@vm.vram) %> MB</div>
+  </div>
+  <div class="data">
+    <div class="label">3D Acceleration:</div>
+    <div class="value"><%= formatted_state_from(@vm.accelerate3d) %></div>
+  </div>
+  <div class="data">
+    <div class="label">2D Video Acceleration:</div>
+    <div class="value"><%= formatted_state_from(@vm.accelerate2dvideo) %></div>
+  </div>
+  <div class="data">
+    <div class="label">Remote Display Server:</div>
+    <div class="value"><%= formatted_vrd_state_from_vm(@vm) %></div>
+  </div>
+</div>
