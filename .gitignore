@@ -2,7 +2,7 @@
 *.sqlite3*
 mkmf.log
 *.tmproj
-logs/*
+log/*
 public/javascripts/cache/
 public/stylesheets/application.css
 public/stylesheets/cache/
