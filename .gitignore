@@ -1,11 +1,13 @@
+.bundle
 .DS_Store
 *.sqlite3*
 mkmf.log
 *.tmproj
-log/*
+log
 public/javascripts/cache/
 public/stylesheets/application.css
 public/stylesheets/cache/
-tmp/*
+tmp
+vendor
 
 /virtualbox
