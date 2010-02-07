@@ -7,6 +7,5 @@ log
 public/javascripts/cache/
 public/stylesheets
 tmp
-vendor
 
 /virtualbox

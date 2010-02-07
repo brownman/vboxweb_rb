@@ -13,7 +13,7 @@ Then run the following in a shell console:
     $ [sudo] gem install bundler less
     $ git clone git://github.com/KieranP/vboxweb_rb.git
     $ cd vboxweb_rb
-    $ bundle install vendor
+    $ bundle install
     $ script/generate_stylesheets
 
 Then adjust config/config.yml, changing the username, password and pointing
@@ -21,7 +21,7 @@ vboxmanage to the path of the VBoxManage executable on your system
 
 Start the app:
 
-    ruby server
+    ruby script/rails server
 
 Then start using it:
 
