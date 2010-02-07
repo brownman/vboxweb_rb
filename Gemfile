@@ -2,7 +2,13 @@
 source 'http://gemcutter.org'
 
 gem "rails", "3.0.0.beta"
-gem "less"
+
+# Less requires Treetop, which require Polygot. Polygot messed with Kernel#require,
+# causing some rather horrible issues. So for now, don't use less or more.
+# gem "less"
+
+# If you need to work with a specific copy of the gem (for development)
+# add  :path => '/path/to/library'   to the gem line below
 gem "virtualbox"
 
 ## Bundle edge rails:

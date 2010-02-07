@@ -10,14 +10,18 @@ If you haven't got VirtualBox installed, you'll need that ;-)
 
 Then run the following in a shell console:
 
-    [sudo] gem install rails less virtualbox
+    $ [sudo] gem install bundler less
+    $ git clone git://github.com/KieranP/vboxweb_rb.git
+    $ cd vboxweb_rb
+    $ bundle install vendor
+    $ script/generate_stylesheets
 
 Then adjust config/config.yml, changing the username, password and pointing
 vboxmanage to the path of the VBoxManage executable on your system
 
 Start the app:
 
-    ruby script/console
+    ruby server
 
 Then start using it:
 

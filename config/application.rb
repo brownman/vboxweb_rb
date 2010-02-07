@@ -7,10 +7,6 @@ require "action_controller/railtie"
 # require "active_resource/railtie"
 require "rails/test_unit/railtie"
 
-# Development only
-# $:<<File.join(Rails.root, 'virtualbox', 'lib')
-# require 'virtualbox'
-
 # Auto-require default libraries and those for the current Rails environment.
 Bundler.require :default, Rails.env
 
