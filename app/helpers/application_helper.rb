@@ -14,14 +14,14 @@ module ApplicationHelper
 
   def formatted_state_from(state)
     case state
-    when 'running'  then vbicon("states/running_16px", 'Running') + " Running"
-    when 'poweroff' then vbicon("states/powered_off_16px", 'Powered Off') + " Powered Off"
-    when 'paused'   then vbicon("states/paused_16px", 'Paused') + " Paused"
-    when 'saved'    then vbicon("states/saved_16px", 'Saved') + " Saved"
-    when 'aborted'  then vbicon("states/aborted_16px", 'Saved') + " Aborted"
-    when 'on'       then "Enabled"
-    when 'off'      then "Disabled"
-    else                 state
+    when 'running'           then vbicon("states/running_16px", 'Running') + " Running"
+    when 'poweroff'          then vbicon("states/powered_off_16px", 'Powered Off') + " Powered Off"
+    when 'paused'            then vbicon("states/paused_16px", 'Paused') + " Paused"
+    when 'saved'             then vbicon("states/saved_16px", 'Saved') + " Saved"
+    when 'aborted'           then vbicon("states/aborted_16px", 'Saved') + " Aborted"
+    when 'on', 'true'        then "Enabled"
+    when 'off', 'false', nil then "Disabled"
+    else                          state
     end
   end
 

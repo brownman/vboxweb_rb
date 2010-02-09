@@ -7,12 +7,12 @@ module VmHelper
 
   def formatted_boot_order_from_vm(vm)
     [vm.boot1, vm.boot2, vm.boot3, vm.boot4].collect do |boot_item|
-      case boot_item
-      when 'floppy' then "Floppy"
-      when 'dvd'    then "CD/DVD-ROM"
-      when 'disk'   then "Hard Disk"
-      when 'none'   then nil
-      else               boot_item
+      case boot_item.downcase
+      when 'floppy'           then "Floppy"
+      when 'dvd'              then "CD/DVD-ROM"
+      when 'disk', 'harddisk' then "Hard Disk"
+      when 'none'             then nil
+      else                         boot_item
       end
     end.compact.join(', ')
   end
