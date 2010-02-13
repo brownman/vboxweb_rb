@@ -1,0 +1,12 @@
+<h3>Are you sure you want to do this?</h3>
+
+<p>
+  Deleting a Virtual Machine is not undoable. Once executed, the
+  <strong>virtual machine will be gone for good</strong>.
+</p>
+
+<p>Are you sure you want to do this?</p>
+
+<% form_tag(destroy_vm_path, :method => :delete) do %>
+  <%= submit_tag "Yes, I'm sure." %>
+<% end %>

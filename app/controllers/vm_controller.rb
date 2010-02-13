@@ -3,7 +3,17 @@ class VmController < ApplicationController
     @vm = VirtualBox::VM.find(params[:uuid])
   end
 
-  def execute
+  def destroy
+    @vm = VirtualBox::VM.find(params[:uuid])
+    if request.delete?
+      @vm.destroy
+      VirtualBox::VM.all(true) # work around a bug in virtualbox gem
+      flash[:notice] = "#{@vm.name} has been deleted."
+      redirect_to root_path
+    end
+  end
+
+  def control
     @vm = VirtualBox::VM.find(params[:uuid])
 
     case params[:command]
@@ -32,6 +42,6 @@ class VmController < ApplicationController
       flash[:error] = "Unsupported Virtual Machine Operation '#{params[:action]}'"
     end
 
-    redirect_to :action => 'show', :uuid => params[:uuid]
+    redirect_to vm_path
   end
 end

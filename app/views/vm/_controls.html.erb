@@ -4,6 +4,11 @@
     <div class="icon"><%= link_to(vbicon('controls/start_16px', 'Start'), "/vm/#{@vm.uuid}/start") %></div>
     <div class="label"><%= link_to('Start', "/vm/#{@vm.uuid}/start") %></div>
   </div>
+
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/delete_16px', 'Delete'), "/vm/#{@vm.uuid}/destroy") %></div>
+    <div class="label"><%= link_to('Delete', "/vm/#{@vm.uuid}/destroy") %></div>
+  </div>
   <% end %>
 
   <% if @vm.running? %>
