@@ -110,17 +110,20 @@ module VmHelper
         network serial_ports usb shared_folders }
   end
 
+  # Convert to a format recognised by 'vboxmanage modifyvm'
+  def normalize_value(value)
+    case value.downcase
+    when 'harddisk' then 'disk'
+    when 'network'  then 'net'
+    else                 value.downcase
+    end
+  end
+
   def formatted_boot_order_from_vm(vm)
     [vm.boot1, vm.boot2, vm.boot3, vm.boot4].collect do |boot_item|
-      case boot_item.downcase
-      when 'floppy'           then "Floppy"
-      when 'dvd'              then "CD/DVD-ROM"
-      when 'disk', 'harddisk' then "Hard Disk"
-      when 'net', 'network'   then "Network"
-      when 'none'             then nil
-      else                         boot_item
-      end
-    end.compact.join(', ')
+      boot_type = boot_types.find { |name, code| code == normalize_value(boot_item) }
+      boot_type ? boot_type.first : boot_item
+    end.reject { |b| b == 'None' }.join(', ')
   end
 
   def formatted_vrd_state_from_vm(vm)
@@ -146,14 +149,7 @@ module VmHelper
   end
 
   def vm_boot_types_dropdown(field_name, current_boot_type='')
-    # Convert different formats into a format used by 'vboxmanage modifyvm'
-    current_boot_type = case current_boot_type.downcase
-    when 'harddisk' then "disk"
-    when 'network'  then "net"
-    else                 current_boot_type
-    end
-
-    select_tag(field_name, options_for_select(boot_types, current_boot_type.downcase))
+    select_tag(field_name, options_for_select(boot_types, normalize_value(current_boot_type)))
   end
 
   def vm_audio_driver_dropdown(field_name, vm=nil)
