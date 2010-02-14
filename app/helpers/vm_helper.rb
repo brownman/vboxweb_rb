@@ -127,11 +127,7 @@ module VmHelper
   end
 
   def formatted_vrd_state_from_vm(vm)
-    case vm.vrdp
-    when 'on'  then "Enabled (port #{vm.vrdpports})"
-    when 'off' then "Disabled"
-    else            vm.vrdp
-    end
+    vm.vrdp == 'true' ? "Enabled (port #{vm.vrdpport})" : "Disabled"
   end
 
   def formatted_audio_driver_from_vm(vm)
