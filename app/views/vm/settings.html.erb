@@ -1,0 +1,120 @@
+<h3 class="heading">Updating <%= @vm.name %></h3>
+
+<% form_tag(vm_settings_path, :method => :put) do %>
+
+  <fieldset id="general" class="data_box">
+    <legend class="heading">General</legend>
+    <div class="data">
+      <div class="label">Name:</div>
+      <div class="value"><%= text_field_tag('settings[name]', @vm.name) %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">OS Type:</div>
+      <div class="value"><%= vm_ostype_dropdown('settings[ostype]', @vm) %></div>
+      <div class="break"></div>
+    </div>
+  </fieldset>
+
+  <fieldset id="system" class="data_box">
+    <legend class="heading">System</legend>
+    <div class="data">
+      <div class="label">Base Memory:</div>
+      <div class="value"><%= text_field_tag('settings[memory]', @vm.memory, :size => 4) %> MB</div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Boot Order:</div>
+      <div class="value">
+        <% (1..4).each do |boot_order| %>
+          <%= vm_boot_types_dropdown("settings[boot#{boot_order}]", @vm.send("boot#{boot_order}")) %><br />
+        <% end %>
+      </div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">IO APIC:</div>
+      <div class="value">
+        <%= radio_button_tag('settings[ioapic]', 'on', @vm.ioapic == 'true') %> On
+        <%= radio_button_tag('settings[ioapic]', 'off', @vm.ioapic == 'false') %> Off
+      </div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Processor(s):</div>
+      <div class="value"><%= text_field_tag('settings[cpus]', @vm.cpus, :size => 2) %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">PAE/NX:</div>
+      <div class="value">
+        <%= radio_button_tag('settings[pae]', 'on', @vm.pae == 'true') %> On
+        <%= radio_button_tag('settings[pae]', 'off', @vm.pae == 'false') %> Off
+      </div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">VT-x/AMD-V:</div>
+      <div class="value">
+        <%= radio_button_tag('settings[hwvirtex]', 'on', @vm.hwvirtex == 'true') %> On
+        <%= radio_button_tag('settings[hwvirtex]', 'off', @vm.hwvirtex == 'false') %> Off
+      </div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Nested Paging:</div>
+      <div class="value">
+        <%= radio_button_tag('settings[nestedpaging]', 'on', @vm.nestedpaging == 'true') %> On
+        <%= radio_button_tag('settings[nestedpaging]', 'off', @vm.nestedpaging == 'false') %> Off
+      </div>
+      <div class="break"></div>
+    </div>
+  </fieldset>
+
+  <fieldset id="display" class="data_box">
+    <legend class="heading">Display</legend>
+    <div class="data">
+      <div class="label">Video Memory:</div>
+      <div class="value"><%= text_field_tag('settings[vram]', @vm.vram, :size => 4) %> MB</div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">3D Acceleration:</div>
+      <div class="value">
+        <%= radio_button_tag('settings[accelerate3d]', 'on', @vm.accelerate3d == 'true') %> On
+        <%= radio_button_tag('settings[accelerate3d]', 'off', @vm.accelerate3d == 'false') %> Off
+      </div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">2D Video Acceleration:</div>
+      <div class="value">
+        <%= radio_button_tag('settings[accelerate2dvideo]', 'on', @vm.accelerate2dvideo == 'true') %> On
+        <%= radio_button_tag('settings[accelerate2dvideo]', 'off', @vm.accelerate2dvideo == 'false') %> Off
+      </div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Remote Display Server:</div>
+      <div class="value"><%= check_box('settings', 'vrdp', { :checked => @vm.vrdp == 'on' }, "on", "off") %> Enable Server</div>
+      <div class="break"></div>
+    </div>
+  </fieldset>
+
+  <fieldset id="audio" class="data_box">
+    <legend class="heading">Audio</legend>
+    <div class="data">
+      <div class="label">Host Audio Driver:</div>
+      <div class="value"><%= vm_audio_driver_dropdown('settings[audio]', @vm) %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Controller:</div>
+      <div class="value"><%= vm_audio_controller_dropdown('settings[audiocontroller]', @vm) %></div>
+      <div class="break"></div>
+    </div>
+  </fieldset>
+
+  <%= submit_tag 'Update Settings' %>
+
+<% end %>

@@ -1,7 +1,20 @@
 <div id="audio" class="data_box">
   <div class="heading">Audio</div>
-  <div class="data">
-    <div class="label">Host Driver:</div>
-    <div class="value"><%= formatted_audio_from_vm(@vm) %></div>
-  </div>
+  <% if @vm.audio != 'true' %>
+    <div class="data">
+      <div class="label">Disabled</div>
+      <div class="break"></div>
+    </div>
+  <% else %>
+    <div class="data">
+      <div class="label">Host Driver:</div>
+      <div class="value"><%= formatted_audio_driver_from_vm(@vm) %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Controller:</div>
+      <div class="value"><%= formatted_audio_controller_from_vm(@vm) %></div>
+      <div class="break"></div>
+    </div>
+  <% end %>
 </div>

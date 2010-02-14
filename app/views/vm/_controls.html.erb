@@ -4,10 +4,17 @@
     <div class="icon"><%= link_to(vbicon('controls/start_16px', 'Start'), "/vm/#{@vm.uuid}/start") %></div>
     <div class="label"><%= link_to('Start', "/vm/#{@vm.uuid}/start") %></div>
   </div>
+  <% end %>
+
+  <% if @vm.powered_off? %>
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/settings_16px', 'Settings'), vm_settings_path) %></div>
+    <div class="label"><%= link_to('Settings', vm_settings_path) %></div>
+  </div>
 
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/delete_16px', 'Delete'), "/vm/#{@vm.uuid}/destroy") %></div>
-    <div class="label"><%= link_to('Delete', "/vm/#{@vm.uuid}/destroy") %></div>
+    <div class="icon"><%= link_to(vbicon('controls/delete_16px', 'Delete'), vm_destroy_path) %></div>
+    <div class="label"><%= link_to('Delete', vm_destroy_path) %></div>
   </div>
   <% end %>
 

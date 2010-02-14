@@ -3,6 +3,34 @@ class VmController < ApplicationController
     @vm = VirtualBox::VM.find(params[:uuid])
   end
 
+  def settings
+    @vm = VirtualBox::VM.find(params[:uuid])
+
+    unless @vm.powered_off?
+      flash[:error] = "Cannot update a virtual machines settings unless it is powered off."
+      redirect_to vm_path
+    end
+
+    if request.put?
+      params[:settings].each do |attribute, value|
+        @vm.send("#{attribute}=", value) if vm_attribute_changed?(attribute, value)
+      end
+
+      begin
+        @vm.save(true)
+        flash[:notice] = "#{@vm.name} settings have been updated."
+      rescue VirtualBox::Exceptions::CommandFailedException => e
+        if e.to_s =~ /A session for the machine [\w\']* is currently open/
+          flash[:error] = "Cannot update settings because the virtual machine is either running, paused, or someone is already editing it."
+        else
+          flash[:error] = e.to_s
+        end
+      end
+
+      redirect_to vm_path
+    end
+  end
+
   def destroy
     @vm = VirtualBox::VM.find(params[:uuid])
     if request.delete?
@@ -43,5 +71,16 @@ class VmController < ApplicationController
     end
 
     redirect_to vm_path
+  end
+
+  private
+
+  # The difference between what we get in output, and what we send as input means
+  # we need to do this conversion is several places :-(
+  def vm_attribute_changed?(attribute, value)
+    return false if @vm.send(attribute).downcase == 'harddisk' && value.downcase == 'disk'
+    return false if @vm.send(attribute).downcase == 'true' && value.downcase == 'on'
+    return false if @vm.send(attribute).downcase == 'false' && value.downcase == 'off'
+    @vm.send(attribute).downcase != value.downcase
   end
 end
