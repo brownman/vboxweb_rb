@@ -3,21 +3,36 @@
   <div class="data">
     <div class="label">Base Memory:</div>
     <div class="value"><%= number_with_delimiter(@vm.memory) %> MB</div>
-  </div>
-  <div class="data">
-    <div class="label">Processor(s):</div>
-    <div class="value"><%= number_with_delimiter(@vm.cpus) %></div>
+    <div class="break"></div>
   </div>
   <div class="data">
     <div class="label">Boot Order:</div>
     <div class="value"><%= formatted_boot_order_from_vm(@vm) %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">IO APIC:</div>
+    <div class="value"><%= formatted_state_from(@vm.ioapic) %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Processor(s):</div>
+    <div class="value"><%= number_with_delimiter(@vm.cpus) %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">PAE/NX:</div>
+    <div class="value"><%= formatted_state_from(@vm.pae) %></div>
+    <div class="break"></div>
   </div>
   <div class="data">
     <div class="label">VT-x/AMD-V:</div>
     <div class="value"><%= formatted_state_from(@vm.hwvirtex) %></div>
+    <div class="break"></div>
   </div>
   <div class="data">
     <div class="label">Nested Paging:</div>
     <div class="value"><%= formatted_state_from(@vm.nestedpaging) %></div>
+    <div class="break"></div>
   </div>
 </div>

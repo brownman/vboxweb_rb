@@ -1,5 +1,16 @@
 module VmHelper
 
+  def audio_drivers
+    [ ['None', 'none'],
+      ['Null Audio Driver', 'null'],
+      ['CoreAudio', 'coreaudio'] ]
+  end
+
+  def audio_controllers
+    [ ['ICH AC97', 'ac97'],
+      ['SoundBlaster 16', 'sb16'] ]
+  end
+
   def vm_data_headings
     %w{ controls general system display storage audio
         network serial_ports usb shared_folders }
@@ -11,6 +22,7 @@ module VmHelper
       when 'floppy'           then "Floppy"
       when 'dvd'              then "CD/DVD-ROM"
       when 'disk', 'harddisk' then "Hard Disk"
+      when 'net', 'network'   then "Network"
       when 'none'             then nil
       else                         boot_item
       end
@@ -25,11 +37,14 @@ module VmHelper
     end
   end
 
-  def formatted_audio_from_vm(vm)
-    case vm.audio
-    when 'coreaudio' then "CoreAudio"
-    else                  vm.audio
-    end
+  def formatted_audio_driver_from_vm(vm)
+    driver = audio_drivers.find { |name, code| code == vm.audiodriver.downcase }
+    driver ? driver.first : vm.audiodriver
+  end
+
+  def formatted_audio_controller_from_vm(vm)
+    controller = audio_controllers.find { |name, code| code == vm.audiocontroller.downcase }
+    controller ? controller.first : vm.audiocontroller
   end
 
 end
