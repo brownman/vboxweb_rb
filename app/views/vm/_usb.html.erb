@@ -1,8 +1,20 @@
-<!-- <div id="usb" class="data_box">
-  <div class="heading">USB</div>
-  <div class="data">
-    <div class="label">Device Filters:</div>
-    <div class="value">TODO</div>
-    <div class="break"></div>
-  </div>
-</div> -->
+<div id="usb" class="data_box">
+  <div class="heading">USB (<%= @vm.usbs.size %>)</div>
+  <% if @vm.usb != 'true' %>
+    <div class="data">
+      <div class="label">Disabled</div>
+      <div class="break"></div>
+    </div>
+  <% else %>
+    <% @vm.usbs.each_with_index do |device, index| %>
+    <div class="data">
+      <div class="label">
+        Device <%= index + 1 %>:
+        <%= device.active == 'true' ? "(active)" : "(inactive)" %>
+      </div>
+      <div class="value"><%= device.name %></div>
+      <div class="break"></div>
+    </div>
+    <% end %>
+  <% end %>
+</div>

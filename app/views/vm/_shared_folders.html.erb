@@ -1,10 +1,17 @@
 <div id="shared_folders" class="data_box">
   <div class="heading">Shared Folders (<%= @vm.shared_folders.size %>)</div>
-  <% @vm.shared_folders.each do |folder| %>
-  <div class="data">
-    <div class="label"><%= folder.name %></div>
-    <div class="value"><%= folder.hostpath %></div>
-    <div class="break"></div>
-  </div>
+  <% if @vm.shared_folders.size == 0 %>
+    <div class="data">
+      <div class="label">None</div>
+      <div class="break"></div>
+    </div>
+  <% else %>
+    <% @vm.shared_folders.each do |folder| %>
+    <div class="data">
+      <div class="label"><%= folder.name %></div>
+      <div class="value"><%= folder.hostpath %></div>
+      <div class="break"></div>
+    </div>
+    <% end %>
   <% end %>
 </div>
