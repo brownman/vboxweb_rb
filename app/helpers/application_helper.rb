@@ -14,6 +14,7 @@ module ApplicationHelper
 
   def formatted_state_from(state)
     case state
+    when 'starting'          then vbicon("states/running_16px", 'Starting') + " Starting"
     when 'running'           then vbicon("states/running_16px", 'Running') + " Running"
     when 'poweroff'          then vbicon("states/powered_off_16px", 'Powered Off') + " Powered Off"
     when 'paused'            then vbicon("states/paused_16px", 'Paused') + " Paused"
