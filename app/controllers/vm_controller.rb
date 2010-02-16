@@ -35,7 +35,6 @@ class VmController < ApplicationController
     @vm = VirtualBox::VM.find(params[:uuid])
     if request.delete?
       @vm.destroy
-      VirtualBox::VM.all(true) # work around a bug in virtualbox gem
       flash[:notice] = "#{@vm.name} has been deleted."
       redirect_to root_path
     end
