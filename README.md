@@ -29,7 +29,11 @@ Then start using it:
 
 ## Screenshot
 
-![VM Control Interface](http://img.skitch.com/20100131-fpsuekt76kjpxb3k8axsi1amju.jpg "VM Control Interface")
+### Interface for a powered off Virtual Machine
+![](http://img.skitch.com/20100216-k84yhtc299xnf9sd494tc9qqh4.jpg)
+
+### Interface for a running Virtual Machine
+![](http://img.skitch.com/20100216-th4a99yf5mycss2r1u4kj1tqp.jpg)
 
 ## Credits
 
