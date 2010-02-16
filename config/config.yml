@@ -1,4 +1,9 @@
----
+# The HTTP authentication details required to log into the vboxweb_rb application
 username: admin
 password: test
-vboxmanage: vboxmanage
+
+# Location to vboxmanage, the console binary for VirtualBox management
+vboxmanage: /usr/bin/vboxmanage
+
+# Location to VirtualBox.xml, the configuration file VirtualBox stores info in
+vboxconfig: ~/Library/VirtualBox/VirtualBox.xml
