@@ -13,6 +13,11 @@
   </div>
 
   <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/export_16px', 'Export'), vm_export_path) %></div>
+    <div class="label"><%= link_to('Export', vm_export_path) %></div>
+  </div>
+
+  <div class="action">
     <div class="icon"><%= link_to(vbicon('controls/delete_16px', 'Delete'), vm_destroy_path) %></div>
     <div class="label"><%= link_to('Delete', vm_destroy_path) %></div>
   </div>

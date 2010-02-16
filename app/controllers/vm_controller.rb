@@ -31,6 +31,21 @@ class VmController < ApplicationController
     end
   end
 
+  def export
+    @vm = VirtualBox::VM.find(params[:uuid])
+    if request.post?
+      filename = params[:export].delete(:filename).parameterize.to_s
+      filepath = Rails.root.join('exports', filename, filename + ".ovf")
+      if File.exist?(filepath)
+        flash[:error] = "Export of this name already exists. Please choose another."
+      else
+        @vm.export(filepath, params[:export], true)
+        flash[:notice] = "#{@vm.name} has been exported to #{filepath}."
+        redirect_to vm_path
+      end
+    end
+  end
+
   def destroy
     @vm = VirtualBox::VM.find(params[:uuid])
     if request.delete?

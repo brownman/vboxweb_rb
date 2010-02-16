@@ -1,5 +1,4 @@
 * VMs
- * Export a VM
  * Import a VM
  * Snapshots (virtualbox gem doesn't support this yet)
  * Create a VM (virtualbox gem doesn't support this yet)

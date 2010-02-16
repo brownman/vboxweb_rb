@@ -3,6 +3,7 @@
 *.sqlite3*
 mkmf.log
 *.tmproj
+exports
 log
 public/javascripts/cache/
 public/stylesheets

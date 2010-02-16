@@ -1,0 +1,55 @@
+<h3 class="heading">Exporting <%= @vm.name %></h3>
+
+<p>
+  Here you are able to export this Virtual Machine into
+  a format other VirtualBox users are able to import
+</p>
+
+<% form_tag(vm_export_path, :method => :post) do %>
+
+  <fieldset class="data_box">
+    <legend class="heading">Export Settings (required)</legend>
+    <div class="data">
+      <div class="label">Filename:</div>
+      <div class="value"><%= text_field_tag('export[filename]') %>.ovf</div>
+      <div class="break"></div>
+    </div>
+  </fieldset>
+
+  <fieldset class="data_box">
+    <legend class="heading">Additional Settings (optional)</legend>
+    <div class="data">
+      <div class="label">Product Name:</div>
+      <div class="value"><%= text_field_tag('export[product]') %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Product URL:</div>
+      <div class="value"><%= text_field_tag('export[producturl]') %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Vendor Name:</div>
+      <div class="value"><%= text_field_tag('export[vendor]') %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Vendor URL:</div>
+      <div class="value"><%= text_field_tag('export[vendorurl]') %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Version:</div>
+      <div class="value"><%= text_field_tag('export[version]') %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">EULA:</div>
+      <div class="value"><%= text_area_tag('export[eula]', '', :rows => 15, :cols => 50) %></div>
+      <div class="break"></div>
+    </div>
+  </fieldset>
+
+  <%= submit_tag 'Export Virtual Machine' %> (may take several minutes)
+
+<% end %>
