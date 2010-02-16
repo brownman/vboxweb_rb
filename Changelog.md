@@ -1,7 +1,17 @@
 # Changelog
 
-## 0.1
+## 0.1.0
 * Initial Release
- * View VMs listed in the sidebar
- * Access detailed information about VMs
- * Start, stop, pause, resume, and save VMs
+    * View Virtual Machines listed in the sidebar, along with their type and status
+    * Access detailed information about Virtual Machines, including:
+        * name & os type
+        * base & video memory
+        * processors
+        * network adapters
+    * Ability to control a Virtual Machine, including:
+        * starting / stopping
+        * pausing / resuming
+        * save / discarding
+        * exporting
+        * deleting
+    * Ability to edit various Virtual Machines settings
