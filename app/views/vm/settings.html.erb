@@ -20,13 +20,19 @@
     <legend class="heading">System</legend>
     <div class="data">
       <div class="label">Base Memory:</div>
-      <div class="value"><%= text_field_tag('settings[memory]', @vm.memory, :size => 4) %> MB</div>
+      <div class="value">
+        <%= text_field_tag('settings[memory]', @vm.memory, :size => 4) %> MB
+        <small>
+          (range: <%= formatted_system_property(:minimum_guest_ram_size) %> -
+           <%= formatted_system_property(:maximum_guest_ram_size) %>)
+        </small>
+      </div>
       <div class="break"></div>
     </div>
     <div class="data">
       <div class="label">Boot Order:</div>
       <div class="value">
-        <% (1..4).each do |boot_order| %>
+        <% (1..formatted_system_property(:maximum_boot_position)).each do |boot_order| %>
           <%= vm_boot_types_dropdown("settings[boot#{boot_order}]", @vm.send("boot#{boot_order}")) %><br />
         <% end %>
       </div>
@@ -42,7 +48,13 @@
     </div>
     <div class="data">
       <div class="label">Processor(s):</div>
-      <div class="value"><%= text_field_tag('settings[cpus]', @vm.cpus, :size => 2) %></div>
+      <div class="value">
+        <%= text_field_tag('settings[cpus]', @vm.cpus, :size => 2) %>
+        <small>
+          (range: <%= formatted_system_property(:minimum_guest_cpu_count) %> -
+           <%= formatted_system_property(:maximum_guest_cpu_count) %>)
+        </small>
+      </div>
       <div class="break"></div>
     </div>
     <div class="data">
@@ -75,7 +87,13 @@
     <legend class="heading">Display</legend>
     <div class="data">
       <div class="label">Video Memory:</div>
-      <div class="value"><%= text_field_tag('settings[vram]', @vm.vram, :size => 4) %> MB</div>
+      <div class="value">
+        <%= text_field_tag('settings[vram]', @vm.vram, :size => 4) %> MB
+        <small>
+          (range: <%= formatted_system_property(:minimum_video_ram_size) %> -
+           <%= formatted_system_property(:maximum_video_ram_size) %>)
+        </small>
+      </div>
       <div class="break"></div>
     </div>
     <div class="data">

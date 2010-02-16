@@ -140,6 +140,12 @@ module VmHelper
     controller ? controller.first : vm.audiocontroller
   end
 
+  def formatted_system_property(property_name)
+    @system_properties ||= VirtualBox::SystemProperty.all
+    value = @system_properties[property_name.to_sym]
+    (value =~ /^\d/ ? value.to_i : value ) if value
+  end
+
   def vm_ostype_dropdown(field_name, vm=nil)
     select_tag(field_name, grouped_options_for_select(os_types, (vm.ostype.downcase if vm)))
   end
