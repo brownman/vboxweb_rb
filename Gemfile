@@ -9,7 +9,7 @@ gem "rails", "3.0.0.beta"
 
 # If you need to work with a specific copy of the gem (for development)
 # add  :path => '/path/to/library'   to the gem line below
-gem "virtualbox"
+gem "virtualbox", ">= 0.5.0"
 
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
