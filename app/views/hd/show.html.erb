@@ -1,0 +1,43 @@
+<div id="general" class="data_box">
+  <div class="heading">General</div>
+  <div class="data">
+    <div class="label">Filename:</div>
+    <div class="value"><%= @hd.filename %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Location:</div>
+    <div class="value"><%= @hd.location %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Format:</div>
+    <div class="value"><%= @hd.format %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Size:</div>
+    <div class="value"><%= convert_from_mb_to_gb(@hd.size) %> GB</div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Accessible:</div>
+    <div class="value"><%= formatted_state_from(@hd.accessible) %></div>
+    <div class="break"></div>
+  </div>
+</div>
+
+<% if @vms_on_this_hd.size > 0 %>
+<div id="display" class="data_box">
+  <div class="heading">
+    <%= pluralize(@vms_on_this_hd.size, 'Virtual Machine') %> on this Hard Drive
+  </div>
+  <% @vms_on_this_hd.each do |vm| %>
+  <div class="data">
+    <div class="label"><%= link_to(vm.name, "/vm/#{vm.uuid}") %></div>
+    <div class="value"><%= vm.description %></div>
+    <div class="break"></div>
+  </div>
+  <% end %>
+</div>
+<% end %>

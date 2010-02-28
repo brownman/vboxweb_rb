@@ -5,5 +5,7 @@ VboxwebRb::Application.routes.draw do |map|
   match 'vm/:uuid/:command' => 'vm#control',  :as => 'vm_control'
   match 'vm/:uuid'          => 'vm#show',     :as => 'vm'
 
+  match 'hd/:uuid'          => 'hd#show',     :as => 'hd'
+
   root :to => 'homepage#index'
 end

@@ -9,4 +9,4 @@ public/javascripts/cache/
 public/stylesheets
 tmp
 
-/virtualbox
+/virtualbox*

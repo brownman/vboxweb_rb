@@ -1,6 +1,11 @@
 class VmController < ApplicationController
   def show
     @vm = VirtualBox::VM.find(params[:uuid])
+
+    unless @vm
+      flash[:error] = "This Virtual Machine does not exist!"
+      redirect_to root_path
+    end
   end
 
   def settings

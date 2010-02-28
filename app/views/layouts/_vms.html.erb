@@ -1,8 +1,8 @@
 <div id="vm_list">
-  <% @vms ||= VirtualBox::VM.all.sort_by { |vm| vm.name.downcase } %>
-  <h2>Virtual Machines (<%= number_with_delimiter(@vms.size) %>)</h2>
+  <% @vm_list ||= VirtualBox::VM.all.sort_by { |vm| vm.name.downcase } %>
+  <h2>Virtual Machines (<%= number_with_delimiter(@vm_list.size) %>)</h2>
 
-  <% @vms.each do |vm| %>
+  <% @vm_list.each do |vm| %>
   <div class="record<%= ' current' if params[:uuid] == vm.uuid %>">
     <div class="icon"><%= convert_ostype_to_os_icon(vm.ostype) %></div>
     <div class="name"><%= link_to(vm.name, "/vm/#{vm.uuid}") %></div>

@@ -11,6 +11,9 @@ gem "rails", "3.0.0.beta"
 # add  :path => '/path/to/library'   to the gem line below
 gem "virtualbox", ">= 0.5.0"
 
+# Use mongrel as the default web server, rather than webrick
+gem "mongrel"
+
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
 

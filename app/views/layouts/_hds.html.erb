@@ -1,0 +1,12 @@
+<div id="hd_list">
+  <% @hd_list ||= VirtualBox::HardDrive.all.sort_by { |vm| vm.filename.downcase } %>
+  <h2>Hard Drives (<%= number_with_delimiter(@hd_list.size) %>)</h2>
+
+  <% @hd_list.each do |drive| %>
+  <div class="record<%= ' current' if params[:uuid] == drive.uuid %>">
+    <div class="icon"><%= vbicon('icons/hd_16px', 'Hard Drive') %></div>
+    <div class="name"><%= link_to(drive.filename, "/hd/#{drive.uuid}") %></div>
+    <div style="clear:both;"></div>
+  </div>
+  <% end %>
+</div>

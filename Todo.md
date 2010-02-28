@@ -7,8 +7,6 @@
 * Snapshots (make and restore from)
 
 ## Hard Disks
-* HD Listing in the menu
-* Viewing of values and VMs using it
 * Create a HD
 * Release a HD (removing VMs from it)
 * Remove a HD (once released)
