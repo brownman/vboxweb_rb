@@ -147,7 +147,7 @@ module VmHelper
   end
 
   def vm_ostype_dropdown(field_name, vm=nil)
-    select_tag(field_name, grouped_options_for_select(os_types, (vm.ostype.downcase if vm)))
+    select_tag(field_name, grouped_options_for_select(os_types, (vm.ostype.downcase if vm)).html_safe)
   end
 
   def vm_boot_types_dropdown(field_name, current_boot_type='')
