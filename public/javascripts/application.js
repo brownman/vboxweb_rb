@@ -1,9 +1,2 @@
-document.observe('dom:loaded', function() {
-
-  $$('.record, .action').each(function(record) {
-    record.observe('click', function() {
-      window.location = record.down('a').href;
-    });
-  });
-
-});
+// Place your application-specific JavaScript functions and classes here
+// This file is automatically included by javascript_include_tag :defaults
