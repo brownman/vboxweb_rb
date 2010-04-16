@@ -1,18 +1,30 @@
-<div id="general" class="data_box">
-  <div class="heading">General</div>
+<% hidden ||= false %>
+<div id="general" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
+  <div class="heading">Basic</div>
   <div class="data">
     <div class="label">Name:</div>
     <div class="value"><%= @vm.name %></div>
     <div class="break"></div>
   </div>
+  <% guest_os_type = @vm.interface.parent.get_guest_os_type(@vm.os_type_id) %>
   <div class="data">
-    <div class="label">OS Type:</div>
-    <div class="value"><%= @vm.ostype %></div>
+    <div class="label">Operating System:</div>
+    <div class="value"><%= guest_os_type.family_description %></div>
     <div class="break"></div>
   </div>
   <div class="data">
-    <div class="label">Description:</div>
-    <div class="value"><%= @vm.description %></div>
+    <div class="label">Version:</div>
+    <div class="value"><%= guest_os_type.description %></div>
     <div class="break"></div>
   </div>
+
+  <div class="heading">Advanced</div>
+  <div class="data">
+    <div class="label">Snapshot Folder:</div>
+    <div class="value"><%= @vm.snapshot_folder %></div>
+    <div class="break"></div>
+  </div>
+
+  <div class="heading">Description</div>
+  <div class="data"><%= @vm.description.present? ? @vm.description : '(none)' %></div>
 </div>

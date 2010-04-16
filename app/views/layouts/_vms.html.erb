@@ -4,7 +4,7 @@
 
   <% @vm_list.each do |vm| %>
   <div class="record<%= ' current' if params[:uuid] == vm.uuid %>">
-    <div class="icon"><%= convert_ostype_to_os_icon(vm.ostype) %></div>
+    <div class="icon"><%= convert_ostype_to_os_icon(vm.os_type_id) %></div>
     <div class="name"><%= link_to(vm.name, "/vm/#{vm.uuid}") %></div>
     <div class="state"><%= formatted_state_from(vm.state) %></div>
     <div style="clear:both;"></div>

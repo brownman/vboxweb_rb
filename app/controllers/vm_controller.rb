@@ -17,12 +17,9 @@ class VmController < ApplicationController
     end
 
     if request.put?
-      params[:settings].each do |attribute, value|
-        @vm.send("#{attribute}=", value) if vm_attribute_changed?(attribute, value)
-      end
-
       begin
-        @vm.save(true)
+        settings_params.each { |attribute, value| @vm.send("#{attribute}=", value) }
+        @vm.save
         flash[:notice] = "#{@vm.name} settings have been updated."
       rescue VirtualBox::Exceptions::CommandFailedException => e
         if e.to_s =~ /A session for the machine [\w\']* is currently open/
@@ -38,13 +35,21 @@ class VmController < ApplicationController
 
   def export
     @vm = VirtualBox::VM.find(params[:uuid])
+
+    unless @vm.powered_off?
+      flash[:error] = "Cannot export a virtual machine unless it is powered off."
+      redirect_to vm_path
+    end
+
     if request.post?
       filename = params[:export].delete(:filename).parameterize.to_s
-      filepath = Rails.root.join('exports', filename, filename + ".ovf")
+      filepath = Rails.root.join('exports', filename, filename+".ovf").to_s
       if File.exist?(filepath)
         flash[:error] = "Export of this name already exists. Please choose another."
       else
-        @vm.export(filepath, params[:export], true)
+        # TODO: Pass in extra params
+        # @vm.export(filepath, params[:export])
+        @vm.export(filepath)
         flash[:notice] = "#{@vm.name} has been exported to #{filepath}."
         redirect_to vm_path
       end
@@ -53,6 +58,12 @@ class VmController < ApplicationController
 
   def destroy
     @vm = VirtualBox::VM.find(params[:uuid])
+
+    unless @vm.powered_off?
+      flash[:error] = "Cannot delete a virtual machine unless it is powered off."
+      redirect_to vm_path
+    end
+
     if request.delete?
       @vm.destroy
       flash[:notice] = "#{@vm.name} has been deleted."
@@ -65,25 +76,25 @@ class VmController < ApplicationController
 
     case params[:command]
     when 'start'
-      @vm.start(:headless)
+      @vm.start(:vrdp) if @vm.powered_off? || @vm.saved? || @vm.aborted?
       flash[:notice] = "#{@vm.name} has been started, but give it a minute to fully boot."
     when 'shutdown'
-      @vm.shutdown
+      @vm.shutdown if @vm.running?
       flash[:notice] = "#{@vm.name} is being shutdown. Please wait a bit for it to complete and refresh the page."
     when 'poweroff'
-      @vm.stop
+      @vm.stop if @vm.running? || @vm.paused?
       flash[:notice] = "#{@vm.name} has been powered off. Any unsaved data will have been lost."
     when 'pause'
-      @vm.pause
+      @vm.pause if @vm.running?
       flash[:notice] = "#{@vm.name} has been paused."
     when 'resume'
-      @vm.resume
+      @vm.resume if @vm.paused?
       flash[:notice] = "#{@vm.name} has been resumed."
     when 'save'
-      @vm.save_state
+      @vm.save_state if @vm.running? || @vm.paused?
       flash[:notice] = "#{@vm.name} has been saved. You may resume at any time by pressing 'Start'."
     when 'discard'
-      @vm.discard_state
+      @vm.discard_state if @vm.saved?
       flash[:notice] = "#{@vm.name} saved state has been discarded."
     else
       flash[:error] = "Unsupported Virtual Machine Operation '#{params[:action]}'"
@@ -94,12 +105,16 @@ class VmController < ApplicationController
 
   private
 
-  # The difference between what we get in output, and what we send as input means
-  # we need to do this conversion is several places :-(
-  def vm_attribute_changed?(attribute, value)
-    return false if @vm.send(attribute).downcase == 'harddisk' && value.downcase == 'disk'
-    return false if @vm.send(attribute).downcase == 'true' && value.downcase == 'on'
-    return false if @vm.send(attribute).downcase == 'false' && value.downcase == 'off'
-    @vm.send(attribute).downcase != value.downcase
+  def settings_params
+    params[:settings].each do |attribute, value|
+      case value
+      when /^\d/ then value = value.to_i
+      when 'true' then value = true
+      when 'false' then value = false
+      end
+      params[:settings][attribute] = value
+    end
+
+    params[:settings]
   end
 end

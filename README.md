@@ -10,14 +10,12 @@ If you haven't got VirtualBox installed, you'll need that ;-)
 
 Then run the following in a shell console:
 
-    $ [sudo] gem install bundler less
+    $ [sudo] gem install bundler
     $ git clone git://github.com/KieranP/vboxweb_rb.git
     $ cd vboxweb_rb
     $ bundle install
-    $ script/generate_stylesheets
 
-Then adjust config/config.yml, changing the username, password and pointing
-vboxmanage to the path of the VBoxManage executable on your system
+Then adjust config/config.yml, changing the username and password.
 
 Start the app:
 
@@ -30,10 +28,10 @@ Then start using it:
 ## Screenshot
 
 ### Interface for a powered off Virtual Machine
-![](http://img.skitch.com/20100216-k84yhtc299xnf9sd494tc9qqh4.jpg)
+![](http://img.skitch.com/20100416-m19ij3i79hawpb9xrx6t1mch2g.png)
 
-### Interface for a running Virtual Machine
-![](http://img.skitch.com/20100216-th4a99yf5mycss2r1u4kj1tqp.jpg)
+### Interface for a Hard Drive
+![](http://img.skitch.com/20100416-jk38y91qbrma6rbehxqyg5kbsc.png)
 
 ## Credits
 

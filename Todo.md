@@ -1,9 +1,12 @@
 # Things left to implement
 
 ## Virtual Machines
+* Readd settings form fields removed after update to work with virtualbox gem v0.6.0
+* Export a VM with additional information (feature removed in virtualbox gem v0.6.0)
+* Push exporting to a background process, and use a progress screen via AJAX
+* Add links for where the user can download the newly exported VM
 * Create a VM
 * Import a VM
-* Download exported VMs
 * Snapshots (make and restore from)
 
 ## Hard Disks

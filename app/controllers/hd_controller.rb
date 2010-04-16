@@ -4,7 +4,9 @@ class HdController < ApplicationController
 
     if @hd
       @vms_on_this_hd = VirtualBox::VM.all.select do |vm|
-        vm.storage_controllers.any? { |sc| sc.devices.any? { |d| d.uuid == @hd.uuid } }
+        vm.storage_controllers.any? do |sc|
+          sc.medium_attachments.any? { |ma| ma.type == :hard_disk && ma.medium.uuid == @hd.uuid }
+        end
       end
     else
       flash[:error] = "This Hard Drive does not exist!"

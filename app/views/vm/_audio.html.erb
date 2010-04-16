@@ -1,20 +1,17 @@
-<div id="audio" class="data_box">
-  <div class="heading">Audio</div>
-  <% if @vm.audio != 'true' %>
+<% hidden ||= false %>
+<div id="audio" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
+  <% if @vm.audio_adapter.enabled %>
     <div class="data">
-      <div class="label">Disabled</div>
-      <div class="break"></div>
-    </div>
-  <% else %>
-    <div class="data">
-      <div class="label">Host Driver:</div>
+      <div class="label">Host Audio Driver:</div>
       <div class="value"><%= formatted_audio_driver_from_vm(@vm) %></div>
       <div class="break"></div>
     </div>
     <div class="data">
-      <div class="label">Controller:</div>
+      <div class="label">Audio Controller:</div>
       <div class="value"><%= formatted_audio_controller_from_vm(@vm) %></div>
       <div class="break"></div>
     </div>
+  <% else %>
+    <div class="data">Disabled</div>
   <% end %>
 </div>

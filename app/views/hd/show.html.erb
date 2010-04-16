@@ -1,5 +1,13 @@
+<h3 class="heading">Displaying <%= @hd.filename %></h3>
+
 <div id="general" class="data_box">
-  <div class="heading">General</div>
+  <% unless @hd.description.blank? %>
+  <div class="data">
+    <div class="label">Description:</div>
+    <div class="value"><%= @hd.description %></div>
+    <div class="break"></div>
+  </div>
+  <% end %>
   <div class="data">
     <div class="label">Filename:</div>
     <div class="value"><%= @hd.filename %></div>
@@ -16,13 +24,13 @@
     <div class="break"></div>
   </div>
   <div class="data">
-    <div class="label">Size:</div>
-    <div class="value"><%= convert_from_mb_to_gb(@hd.size) %> GB</div>
+    <div class="label">Used Space:</div>
+    <div class="value"><%= convert_from_bytes_to_gb(@hd.physical_size) %> GB</div>
     <div class="break"></div>
   </div>
   <div class="data">
-    <div class="label">Accessible:</div>
-    <div class="value"><%= formatted_state_from(@hd.accessible) %></div>
+    <div class="label">Available Space:</div>
+    <div class="value"><%= convert_from_mb_to_gb(@hd.logical_size) %> GB</div>
     <div class="break"></div>
   </div>
 </div>

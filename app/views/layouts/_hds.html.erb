@@ -1,5 +1,5 @@
 <div id="hd_list">
-  <% @hd_list ||= VirtualBox::HardDrive.all.sort_by { |vm| vm.filename.downcase } %>
+  <% @hd_list ||= VirtualBox::HardDrive.all.sort_by { |hd| hd.filename.downcase } %>
   <h2>Hard Drives (<%= number_with_delimiter(@hd_list.size) %>)</h2>
 
   <% @hd_list.each do |drive| %>

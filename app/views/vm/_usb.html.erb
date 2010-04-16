@@ -1,20 +1,20 @@
-<div id="usb" class="data_box">
-  <div class="heading">USB (<%= @vm.usbs.size %>)</div>
-  <% if @vm.usb != 'true' %>
+<% hidden ||= false %>
+<div id="usb" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
+  <% if @vm.usb_controller.enabled %>
+    <% @vm.usb_controller.interface.device_filters.each_with_index do |device_filter, index| %>
+      <div class="data">
+        <div class="label">
+          Device <%= index + 1 %>:
+          <%= device_filter.active ? "(active)" : "(inactive)" %>
+        </div>
+        <div class="value"><%= device_filter.name %></div>
+        <div class="break"></div>
+      </div>
+    <% end %>
+  <% else %>
     <div class="data">
       <div class="label">Disabled</div>
       <div class="break"></div>
     </div>
-  <% else %>
-    <% @vm.usbs.each_with_index do |device, index| %>
-    <div class="data">
-      <div class="label">
-        Device <%= index + 1 %>:
-        <%= device.active == 'true' ? "(active)" : "(inactive)" %>
-      </div>
-      <div class="value"><%= device.name %></div>
-      <div class="break"></div>
-    </div>
-    <% end %>
   <% end %>
 </div>

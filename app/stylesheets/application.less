@@ -107,19 +107,120 @@ body {
     }
   }
 
+  #categories {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin: 0 3px 0 0;
+        padding: 0;
+        float: left;
+        background-color: #f7f7f7;
+        border: 1px solid #000;
+        border-bottom: none;
+        -moz-border-radius-topleft: 0.75em;
+        -moz-border-radius-topright: 0.75em;
+        -webkit-border-top-left-radius: 0.75em;
+        -webkit-border-top-right-radius: 0.75em;
+
+        a {
+          margin: 0;
+          padding: 10px 8px 10px 25px;
+          display: block;
+          color: #000;
+          text-decoration: none;
+        }
+
+        #general_view_link {
+          background: transparent url(/images/virtualbox/icons/general_16px.png) no-repeat 5px 8px;
+        }
+        #system_view_link {
+          background: transparent url(/images/virtualbox/icons/system_16px.png) no-repeat 5px 8px;
+        }
+        #display_view_link {
+          background: transparent url(/images/virtualbox/icons/display_16px.png) no-repeat 5px 8px;
+        }
+        #storage_view_link {
+          background: transparent url(/images/virtualbox/icons/storage_16px.png) no-repeat 5px 8px;
+        }
+        #audio_view_link {
+          background: transparent url(/images/virtualbox/icons/audio_16px.png) no-repeat 5px 8px;
+        }
+        #network_view_link {
+          background: transparent url(/images/virtualbox/icons/network_16px.png) no-repeat 5px 8px;
+        }
+        #usb_view_link {
+          background: transparent url(/images/virtualbox/icons/usb_16px.png) no-repeat 5px 8px;
+        }
+        #shared_folders_view_link {
+          background: transparent url(/images/virtualbox/icons/shared_folders_16px.png) no-repeat 5px 8px;
+        }
+      }
+
+      li.current_view {
+        background-color: #ccc;
+      }
+    }
+  }
+
+  #vm_properties {
+    margin: 0;
+    padding: 10px;
+    border: 1px solid #000;
+
+    #general legend {
+      height: 16px;
+      background: transparent url(/images/virtualbox/icons/general_16px.png) no-repeat;
+    }
+    #system legend {
+      height: 16px;
+      background: transparent url(/images/virtualbox/icons/system_16px.png) no-repeat;
+    }
+    #display legend {
+      height: 16px;
+      background: transparent url(/images/virtualbox/icons/display_16px.png) no-repeat;
+    }
+    #storage legend {
+      height: 16px;
+      background: transparent url(/images/virtualbox/icons/storage_16px.png) no-repeat;
+    }
+    #audio legend {
+      height: 16px;
+      background: transparent url(/images/virtualbox/icons/audio_16px.png) no-repeat;
+    }
+    #network legend {
+      height: 16px;
+      background: transparent url(/images/virtualbox/icons/network_16px.png) no-repeat;
+    }
+    #usb legend {
+      height: 16px;
+      background: transparent url(/images/virtualbox/icons/usb_16px.png) no-repeat;
+    }
+    #shared_folders legend {
+      height: 16px;
+      background: transparent url(/images/virtualbox/icons/shared_folders_16px.png) no-repeat;
+    }
+  }
+
   .heading {
     margin-bottom: 10px;
   }
 
   .data_box {
     clear: both;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 
     .heading {
       font-weight: bold;
-      height: 16px;
       padding-left: 20px;
-      margin-bottom: 0px;
+      margin: 10px 0 5px 0;
+    }
+    .subheading {
+      font-weight: bold;
+      padding-left: 20px;
+      margin: 5px 0 10px 0;
     }
     .data {
       clear: both;
@@ -127,42 +228,17 @@ body {
       margin-top: 5px;
 
       .label {
-        width: 180px;
+        width: 150px;
         float: left;
       }
       .value {
-        width: 480px;
+        width: 450px;
         float: right;
       }
       .break {
         clear: both;
       }
     }
-  }
-
-  #general.data_box .heading {
-    background: transparent url(/images/virtualbox/icons/general_16px.png) no-repeat;
-  }
-  #system.data_box .heading {
-    background: transparent url(/images/virtualbox/icons/system_16px.png) no-repeat;
-  }
-  #display.data_box .heading {
-    background: transparent url(/images/virtualbox/icons/display_16px.png) no-repeat;
-  }
-  #storage.data_box .heading {
-    background: transparent url(/images/virtualbox/icons/storage_16px.png) no-repeat;
-  }
-  #audio.data_box .heading {
-    background: transparent url(/images/virtualbox/icons/audio_16px.png) no-repeat;
-  }
-  #network.data_box .heading {
-    background: transparent url(/images/virtualbox/icons/network_16px.png) no-repeat;
-  }
-  #usb.data_box .heading {
-    background: transparent url(/images/virtualbox/icons/usb_16px.png) no-repeat;
-  }
-  #shared_folders.data_box .heading {
-    background: transparent url(/images/virtualbox/icons/shared_folders_16px.png) no-repeat;
   }
 }
 

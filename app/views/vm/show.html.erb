@@ -1,3 +1,22 @@
-<% vm_data_headings.each do |data_heading| %>
-  <%= render data_heading %>
-<% end %>
+<%= render 'controls' %>
+
+<div id="categories">
+  <ul>
+    <% %w{ general system display storage audio network usb shared_folders }.each do |data_type| %>
+      <% current = ((params[:view].blank? && data_type == 'general') ||
+                    (params[:view].present? && params[:view] == data_type)) %>
+      <li <%=raw 'class="current_view"' if current %>>
+        <%= link_to data_type.humanize, { :view => data_type }, { :id => "#{data_type}_view_link", :'data-view' => data_type } %>
+      </li>
+    <% end %>
+  </ul>
+  <div style="clear:both;"></div>
+</div>
+
+<div id="vm_properties">
+  <% %w{ general system display storage audio network usb shared_folders }.each do |data_type| %>
+    <% hidden = ((params[:view].blank? && data_type != 'general') ||
+                 (params[:view].present? && params[:view] != data_type)) %>
+    <%= render data_type, :hidden => hidden %>
+  <% end %>
+</div>

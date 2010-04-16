@@ -1,8 +1,9 @@
-<div id="system" class="data_box">
-  <div class="heading">System</div>
+<% hidden ||= false %>
+<div id="system" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
+  <div class="heading">Motherboard</div>
   <div class="data">
     <div class="label">Base Memory:</div>
-    <div class="value"><%= number_with_delimiter(@vm.memory) %> MB</div>
+    <div class="value"><%= number_with_delimiter(@vm.memory_size) %> MB</div>
     <div class="break"></div>
   </div>
   <div class="data">
@@ -12,27 +13,31 @@
   </div>
   <div class="data">
     <div class="label">IO APIC:</div>
-    <div class="value"><%= formatted_state_from(@vm.ioapic) %></div>
+    <div class="value"><%= formatted_state_from(@vm.bios.io_apic_enabled) %></div>
     <div class="break"></div>
   </div>
+
+  <div class="heading">Processor</div>
   <div class="data">
     <div class="label">Processor(s):</div>
-    <div class="value"><%= number_with_delimiter(@vm.cpus) %></div>
+    <div class="value"><%= number_with_delimiter(@vm.cpu_count) %></div>
     <div class="break"></div>
   </div>
   <div class="data">
     <div class="label">PAE/NX:</div>
-    <div class="value"><%= formatted_state_from(@vm.pae) %></div>
+    <div class="value"><%= formatted_state_from(@vm.interface.get_cpu_property(:pae)) %></div>
     <div class="break"></div>
   </div>
+
+  <div class="heading">Acceleration</div>
   <div class="data">
     <div class="label">VT-x/AMD-V:</div>
-    <div class="value"><%= formatted_state_from(@vm.hwvirtex) %></div>
+    <div class="value"><%= formatted_state_from(@vm.interface.get_hw_virt_ex_property(:enabled)) %></div>
     <div class="break"></div>
   </div>
   <div class="data">
     <div class="label">Nested Paging:</div>
-    <div class="value"><%= formatted_state_from(@vm.nestedpaging) %></div>
+    <div class="value"><%= formatted_state_from(@vm.interface.get_hw_virt_ex_property(:nested_paging)) %></div>
     <div class="break"></div>
   </div>
 </div>

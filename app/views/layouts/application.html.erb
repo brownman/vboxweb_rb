@@ -3,7 +3,7 @@
 <head>
   <title>VirtualBox Web Interface</title>
   <%= stylesheet_link_tag('reset', 'application') %>
-  <%= javascript_include_tag(:defaults) %>
+  <%= javascript_include_tag(:defaults, 'vboxweb') %>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -11,7 +11,7 @@
 
     <div id="header">
       <h1>VirtualBox Web Interface</h1>
-      <div id="version">v0.1.0</div>
+      <div id="version">v0.2.0</div>
     </div>
 
     <% if flash[:notice] %>

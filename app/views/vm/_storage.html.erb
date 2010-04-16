@@ -1,12 +1,13 @@
-<div id="storage" class="data_box">
-  <div class="heading">Storage</div>
+<% hidden ||= false %>
+<div id="storage" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
   <% @vm.storage_controllers.each do |storage_controller| %>
-    <% storage_controller.devices.each_with_index do |device, index| %>
-    <div class="data">
-      <div class="label"><%= storage_controller.name %> <%= index + 1 %>:</div>
-      <div class="value"><%= formatted_display_of_drive(device.image) %></div>
-      <div class="break"></div>
-    </div>
+    <div class="heading"><%= storage_controller.name %> (<%= storage_controller.controller_type.to_s.upcase %>)</div>
+    <% storage_controller.medium_attachments.each_with_index do |medium_attachment, index| %>
+      <div class="data">
+        <div class="label"><%= storage_controller.name %> <%= index + 1 %>:</div>
+        <div class="value"><%= formatted_display_of_drive(medium_attachment) %></div>
+        <div class="break"></div>
+      </div>
     <% end %>
   <% end %>
 </div>

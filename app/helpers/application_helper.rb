@@ -8,20 +8,24 @@ module ApplicationHelper
     vbicon("os/#{ostype.downcase}", ostype)
   end
 
+  def convert_from_bytes_to_gb(bytes)
+    sprintf("%.2f", (bytes.to_f / 1024 / 1024 / 1024))
+  end
+
   def convert_from_mb_to_gb(megabytes)
-    sprintf("%.2f", (megabytes.to_f / 1024.to_f))
+    sprintf("%.2f", (megabytes.to_f / 1024))
   end
 
   def formatted_state_from(state)
-    case state
+    case state.to_s
     when 'starting'          then vbicon("states/running_16px", 'Starting') + " Starting"
     when 'running'           then vbicon("states/running_16px", 'Running') + " Running"
-    when 'poweroff'          then vbicon("states/powered_off_16px", 'Powered Off') + " Powered Off"
+    when 'powered_off'       then vbicon("states/powered_off_16px", 'Powered Off') + " Powered Off"
     when 'paused'            then vbicon("states/paused_16px", 'Paused') + " Paused"
     when 'saved'             then vbicon("states/saved_16px", 'Saved') + " Saved"
     when 'aborted'           then vbicon("states/aborted_16px", 'Saved') + " Aborted"
     when 'on', 'true'        then "Enabled"
-    when 'off', 'false', nil then "Disabled"
+    when 'off', 'false', ''  then "Disabled"
     when 'yes'               then "Yes"
     when 'no'                then "No"
     else                          state
