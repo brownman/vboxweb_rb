@@ -4,6 +4,6 @@
   <div class="text"><%= @export.percent_exported %>%  </div>
 </div>
 
-<div class="reload"><%= link_to('Reload', '') unless request.xhr? %></div>
+<div class="reload"><%= link_to('Reload', '') unless request.xhr? || @export.completed? %></div>
 
 <%= javascript_tag("stop_current_export_progress();") if @export.completed? %>

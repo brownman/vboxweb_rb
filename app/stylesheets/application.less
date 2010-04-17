@@ -5,13 +5,15 @@ body {
 
 #container {
   width: 960px;
-  margin: 0 auto;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
 }
 
 #header {
-  padding: 20px 5px 20px 50px;
-  margin: 10px 0;
-  border: 1px solid #000;
+  padding: 15px 5px 20px 60px;
+  margin: 10px 20px;
   background: transparent url(/images/virtualbox/logos/VirtualBox_cube_42px.png) no-repeat 5px 5px;
 
   #version {
@@ -36,8 +38,10 @@ body {
 
 #menu {
   float: left;
-  width: 220px;
-  border: 1px solid #000;
+  width: 200px;
+  margin-left: 20px;
+  padding-right: 15px;
+  border-right: 1px solid #ccc;
 
   #vm_list, #hd_list {
     width: 100%;
@@ -47,7 +51,7 @@ body {
     }
     .record {
       padding: 10px;
-      background-color: #E2E2E2;
+      background-color: #F0F0F0;
 
       .icon {
         float: left;
@@ -62,11 +66,13 @@ body {
       }
     }
     .record.current {
-      background-color: #8D8D8D;
+      background-color: #ccc;
     }
   }
 
   #hd_list {
+    margin-top: 20px;
+
     .record {
       padding: 5px 10px;
     }
@@ -76,13 +82,12 @@ body {
 
 #info {
   float: right;
-  width: 700px;
+  width: 680px;
   padding: 10px;
-  border: 1px solid #000;
+  margin-right: 20px;
 
   #actions {
     margin-bottom: 15px;
-    border: 1px solid #000;
 
     .action {
       padding: 3px 10px;
@@ -127,35 +132,35 @@ body {
 
         a {
           margin: 0;
-          padding: 10px 8px 10px 25px;
+          padding: 7px 8px 7px 25px;
           display: block;
           color: #000;
           text-decoration: none;
         }
 
         #general_view_link {
-          background: transparent url(/images/virtualbox/icons/general_16px.png) no-repeat 5px 8px;
+          background: transparent url(/images/virtualbox/icons/general_16px.png) no-repeat 5px 5px;
         }
         #system_view_link {
-          background: transparent url(/images/virtualbox/icons/system_16px.png) no-repeat 5px 8px;
+          background: transparent url(/images/virtualbox/icons/system_16px.png) no-repeat 5px 5px;
         }
         #display_view_link {
-          background: transparent url(/images/virtualbox/icons/display_16px.png) no-repeat 5px 8px;
+          background: transparent url(/images/virtualbox/icons/display_16px.png) no-repeat 5px 5px;
         }
         #storage_view_link {
-          background: transparent url(/images/virtualbox/icons/storage_16px.png) no-repeat 5px 8px;
+          background: transparent url(/images/virtualbox/icons/storage_16px.png) no-repeat 5px 5px;
         }
         #audio_view_link {
-          background: transparent url(/images/virtualbox/icons/audio_16px.png) no-repeat 5px 8px;
+          background: transparent url(/images/virtualbox/icons/audio_16px.png) no-repeat 5px 5px;
         }
         #network_view_link {
-          background: transparent url(/images/virtualbox/icons/network_16px.png) no-repeat 5px 8px;
+          background: transparent url(/images/virtualbox/icons/network_16px.png) no-repeat 5px 5px;
         }
         #usb_view_link {
-          background: transparent url(/images/virtualbox/icons/usb_16px.png) no-repeat 5px 8px;
+          background: transparent url(/images/virtualbox/icons/usb_16px.png) no-repeat 5px 5px;
         }
         #shared_folders_view_link {
-          background: transparent url(/images/virtualbox/icons/shared_folders_16px.png) no-repeat 5px 8px;
+          background: transparent url(/images/virtualbox/icons/shared_folders_16px.png) no-repeat 5px 5px;
         }
       }
 
@@ -168,7 +173,7 @@ body {
   #vm_properties {
     margin: 0;
     padding: 10px;
-    border: 1px solid #000;
+    border-top: 1px solid #000;
 
     #general legend {
       height: 16px;
@@ -253,6 +258,7 @@ body {
   #export_status {
     text-align: center;
     font-size: 1.3em;
+    margin-top: 50px;
 
     .percent_exported {
       position: relative;
@@ -278,15 +284,15 @@ body {
 
   #return_to_exports {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 35px;
   }
 }
 
 #footer {
   padding: 15px;
-  margin: 10px 0;
+  margin: 10px 20px 0 20px;
   text-align: center;
-  border: 1px solid #000;
+  border-top: 1px solid #ccc;
 }
 
 h1 {
