@@ -1,0 +1,26 @@
+<h2 class="heading"><%= @vm.name %> Exports</h2>
+
+<h3>Create Export</h3>
+<%= render 'form' %>
+
+<% previous_exports = Export.find_all_by_machine_id(@vm.uuid) %>
+<% if previous_exports.size > 0 %>
+  <h3>Previous Exports</h3>
+  <table class="previous_exports_table">
+    <tr class="export_headings">
+      <th class="date">Exported</th>
+      <th class="filename">Filename</th>
+      <th class="status">Status</th>
+    </tr>
+    <% previous_exports.each do |export| %>
+      <tr class="export">
+        <td class="date"><%= export.created_at.to_date %></td>
+        <td class="filename"><%= export.filename %></td>
+        <td class="status"><%= export.status %> <%= "(#{export.percent_exported}%)" if export.running? %></td>
+        <% if export.running? %>
+          <td><%= link_to '(view export progress)', vm_export_path(:id => export.id) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

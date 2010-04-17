@@ -1,0 +1,7 @@
+<h2 class="heading">Exporting <%= @export.machine.name %>...</h2>
+
+<div id="export_status"><%= render 'progress' %></div>
+
+<%= javascript_tag("update_export_progress('export_status', '#{vm_export_progress_path}');") unless @export.completed? %>
+
+<div id="return_to_exports"><%= link_to 'Return to Exports', vm_exports_path %></div>

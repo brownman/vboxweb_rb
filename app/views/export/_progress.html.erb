@@ -1,0 +1,9 @@
+<div class="status"><%= Export::STATUSES[@export.status.to_sym] %></div>
+<div class="percent_exported">
+  <div class="bar" style="width: <%= @export.percent_exported %>%;"></div>
+  <div class="text"><%= @export.percent_exported %>%  </div>
+</div>
+
+<div class="reload"><%= link_to('Reload', '') unless request.xhr? %></div>
+
+<%= javascript_tag("stop_current_export_progress();") if @export.completed? %>

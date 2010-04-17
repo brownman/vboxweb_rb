@@ -240,6 +240,46 @@ body {
       }
     }
   }
+
+  .previous_exports_table {
+    tr {
+      th, td {
+        padding: 3px 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  #export_status {
+    text-align: center;
+    font-size: 1.3em;
+
+    .percent_exported {
+      position: relative;
+      width: 200px;
+      height: 25px;
+      margin: 5px auto;
+      border: 1px solid #000;
+
+      .bar {
+        position: absolute;
+        z-index: 1;
+        height: 25px;
+        background-color: green;
+      }
+
+      .text {
+        position: relative;
+        z-index: 2;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  #return_to_exports {
+    text-align: center;
+    margin-top: 25px;
+  }
 }
 
 #footer {
@@ -247,6 +287,19 @@ body {
   margin: 10px 0;
   text-align: center;
   border: 1px solid #000;
+}
+
+h1 {
+  font-size: 1.4em;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1.0em;
+  margin: 10px 0;
 }
 
 p {

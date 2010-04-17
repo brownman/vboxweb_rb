@@ -1,11 +1,9 @@
-<h3 class="heading">Exporting <%= @vm.name %></h3>
-
 <p>
   Here you are able to export this Virtual Machine into
-  a format other VirtualBox users are able to import
+  a format other VirtualBox users are able to import.
 </p>
 
-<%= form_tag(vm_export_path, :method => :post) do %>
+<%= form_tag(vm_new_export_path, :method => :post) do %>
 
   <fieldset class="data_box">
     <legend class="heading">Export Settings (required)</legend>
@@ -50,6 +48,6 @@
     </div>
   </fieldset> -->
 
-  <%= submit_tag 'Export Virtual Machine' %> (may take several minutes)
+  <%= submit_tag 'Export Virtual Machine' %>
 
 <% end %>

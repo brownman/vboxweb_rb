@@ -33,29 +33,6 @@ class VmController < ApplicationController
     end
   end
 
-  def export
-    @vm = VirtualBox::VM.find(params[:uuid])
-
-    unless @vm.powered_off?
-      flash[:error] = "Cannot export a virtual machine unless it is powered off."
-      redirect_to vm_path
-    end
-
-    if request.post?
-      filename = params[:export].delete(:filename).parameterize.to_s
-      filepath = Rails.root.join('exports', filename, filename+".ovf").to_s
-      if File.exist?(filepath)
-        flash[:error] = "Export of this name already exists. Please choose another."
-      else
-        # TODO: Pass in extra params
-        # @vm.export(filepath, params[:export])
-        @vm.export(filepath)
-        flash[:notice] = "#{@vm.name} has been exported to #{filepath}."
-        redirect_to vm_path
-      end
-    end
-  end
-
   def destroy
     @vm = VirtualBox::VM.find(params[:uuid])
 
@@ -97,7 +74,7 @@ class VmController < ApplicationController
       @vm.discard_state if @vm.saved?
       flash[:notice] = "#{@vm.name} saved state has been discarded."
     else
-      flash[:error] = "Unsupported Virtual Machine Operation '#{params[:action]}'"
+      flash[:error] = "Unsupported Virtual Machine Operation '#{params[:command]}'"
     end
 
     redirect_to vm_path

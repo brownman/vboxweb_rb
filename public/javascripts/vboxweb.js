@@ -1,3 +1,13 @@
+var export_progress_updater;
+
+function update_export_progress(element_id, url) {
+  export_progress_updater = new Ajax.PeriodicalUpdater(element_id, url, { evalScripts: true });
+}
+
+function stop_current_export_progress() {
+  if(export_progress_updater) { export_progress_updater.stop(); }
+}
+
 document.observe('dom:loaded', function() {
 
   $$('.record, .action').each(function(record) {

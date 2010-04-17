@@ -14,6 +14,7 @@ Then run the following in a shell console:
     $ git clone git://github.com/KieranP/vboxweb_rb.git
     $ cd vboxweb_rb
     $ bundle install
+    $ script/delayed_job start
 
 Then adjust config/config.yml, changing the username and password.
 
