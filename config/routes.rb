@@ -2,6 +2,7 @@ VboxwebRb::Application.routes.draw do |map|
   match 'vm/:uuid/exports'              => 'export#index',    :as => 'vm_exports'
   match 'vm/:uuid/exports/new'          => 'export#new',      :as => 'vm_new_export'
   match 'vm/:uuid/exports/:id/progress' => 'export#progress', :as => 'vm_export_progress'
+  match 'vm/:uuid/exports/:id/download' => 'export#download', :as => 'vm_export_download'
   match 'vm/:uuid/exports/:id'          => 'export#show',     :as => 'vm_export'
 
   match 'vm/:uuid/settings'    => 'vm#settings',  :as => 'vm_settings'

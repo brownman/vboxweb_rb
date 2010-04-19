@@ -4,6 +4,8 @@
   <div class="text"><%= @export.percent_exported %>%  </div>
 </div>
 
-<div class="reload"><%= link_to('Reload', '') unless request.xhr? || @export.completed? %></div>
+<div class="reload"><%= link_to('Reload', '') unless @export.percent_exported > 0 || @export.completed? %></div>
+<div class="download"><%= link_to('Download', vm_export_download_path) if @export.completed? %></div>
 
 <%= javascript_tag("stop_current_export_progress();") if @export.completed? %>
+<%= javascript_tag("$('no_background_process').hide();") if @export.percent_exported > 0 %>

@@ -4,4 +4,13 @@
 
 <%= javascript_tag("update_export_progress('export_status', '#{vm_export_progress_path}');") unless @export.completed? %>
 
+<% unless @export.completed? %>
+  <div id="no_background_process">
+    If the export remains at 0% for a minute or more,
+    it's possible that the background server isn't
+    running. Run <strong>script/delayed_job start</strong>
+    to start it.
+  </div>
+<% end %>
+
 <div id="return_to_exports"><%= link_to 'Return to Exports', vm_exports_path %></div>

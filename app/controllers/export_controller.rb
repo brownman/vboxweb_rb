@@ -28,6 +28,11 @@ class ExportController < ApplicationController
     render :layout => false
   end
 
+  def download
+    @export = Export.find(params[:id])
+    send_file(@export.package, :type => 'application/x-tar')
+  end
+
   private
 
   def find_virtual_machine_from_uuid
