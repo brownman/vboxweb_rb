@@ -1,13 +1,12 @@
 class ExportController < ApplicationController
-  before_filter :find_virtual_machine_from_uuid, :except => [:index]
-  before_filter :redirect_unless_vm_powered_off, :only => [:new, :create]
+  before_filter :find_virtual_machine_from_uuid, :only => [:index, :new]
+  before_filter :find_export_from_id, :except => [:index, :new]
+  before_filter :redirect_unless_vm_powered_off, :only => [:new]
 
   def index
-    @vm = VirtualBox::VM.find(params[:uuid])
   end
 
   def show
-    @export = Export.find(params[:id])
   end
 
   def new
@@ -24,25 +23,16 @@ class ExportController < ApplicationController
   end
 
   def progress
-    @export = Export.find(params[:id])
     render :layout => false
   end
 
   def download
-    @export = Export.find(params[:id])
     send_file(@export.package, :type => 'application/x-tar')
   end
 
   private
 
-  def find_virtual_machine_from_uuid
-    @vm = VirtualBox::VM.find(params[:uuid])
-  end
-
-  def redirect_unless_vm_powered_off
-    unless @vm.powered_off?
-      flash[:error] = "Cannot export a virtual machine unless it is powered off."
-      redirect_to vm_path
-    end
+  def find_export_from_id
+    @export = Export.find(params[:id])
   end
 end

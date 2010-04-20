@@ -1,70 +1,72 @@
 <div id="actions">
-  <% if @vm.powered_off? || @vm.saved? || @vm.aborted? %>
+  <% if (@vm.powered_off? || @vm.saved? || @vm.aborted?) && any_hard_drives_attached_to?(@vm) %>
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/start_16px', 'Start'), "/vm/#{@vm.uuid}/start") %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/start_16px', 'Start'), "/vm/#{@vm.uuid}/start") %></div>
     <div class="label"><%= link_to('Start', "/vm/#{@vm.uuid}/start") %></div>
   </div>
   <% end %>
 
   <% if @vm.powered_off? %>
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/settings_16px', 'Settings'), vm_settings_path) %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/settings_16px', 'Settings'), vm_settings_path) %></div>
     <div class="label"><%= link_to('Settings', vm_settings_path) %></div>
   </div>
 
+  <% if any_hard_drives_attached_to?(@vm) %>
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/export_16px', 'Exports'), vm_exports_path) %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/export_16px', 'Exports'), vm_exports_path) %></div>
     <div class="label"><%= link_to('Exports', vm_exports_path) %></div>
   </div>
+  <% end %>
 
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/delete_16px', 'Delete'), vm_destroy_path) %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/delete_16px', 'Delete'), vm_destroy_path) %></div>
     <div class="label"><%= link_to('Delete', vm_destroy_path) %></div>
   </div>
   <% end %>
 
   <% if @vm.running? %>
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/shutdown_16px', 'Shutdown'), "/vm/#{@vm.uuid}/shutdown") %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/shutdown_16px', 'Shutdown'), "/vm/#{@vm.uuid}/shutdown") %></div>
     <div class="label"><%= link_to('Shutdown', "/vm/#{@vm.uuid}/shutdown") %></div>
   </div>
   <% end %>
 
   <% if @vm.running? || @vm.paused? %>
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/poweroff_16px', 'Power off'), "/vm/#{@vm.uuid}/poweroff") %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/poweroff_16px', 'Power off'), "/vm/#{@vm.uuid}/poweroff") %></div>
     <div class="label"><%= link_to('Power Off', "/vm/#{@vm.uuid}/poweroff") %></div>
   </div>
 
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/save_16px', 'Save'), "/vm/#{@vm.uuid}/save") %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/save_16px', 'Save'), "/vm/#{@vm.uuid}/save") %></div>
     <div class="label"><%= link_to('Save', "/vm/#{@vm.uuid}/save") %></div>
   </div>
   <% end %>
 
   <% if @vm.running? %>
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/pause_16px', 'Pause'), "/vm/#{@vm.uuid}/pause") %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/pause_16px', 'Pause'), "/vm/#{@vm.uuid}/pause") %></div>
     <div class="label"><%= link_to('Pause', "/vm/#{@vm.uuid}/pause") %></div>
   </div>
   <% end %>
 
   <% if @vm.paused? %>
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/start_16px', 'Resume'), "/vm/#{@vm.uuid}/resume") %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/start_16px', 'Resume'), "/vm/#{@vm.uuid}/resume") %></div>
     <div class="label"><%= link_to('Resume', "/vm/#{@vm.uuid}/resume") %></div>
   </div>
   <% end %>
 
   <% if @vm.saved? %>
   <div class="action">
-    <div class="icon"><%= link_to(vbicon('controls/discard_16px', 'Discard'), "/vm/#{@vm.uuid}/discard") %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/discard_16px', 'Discard'), "/vm/#{@vm.uuid}/discard") %></div>
     <div class="label"><%= link_to('Discard', "/vm/#{@vm.uuid}/discard") %></div>
   </div>
   <% end %>
 
   <div class="action refresh">
-    <div class="icon"><%= link_to(vbicon('controls/refresh_16px', 'Refresh'), "/vm/#{@vm.uuid}") %></div>
+    <div class="icon"><%= link_to(vbicon('controls/vm/refresh_16px', 'Refresh'), "/vm/#{@vm.uuid}") %></div>
     <div class="label"><%= link_to('Refresh', "/vm/#{@vm.uuid}") %></div>
   </div>
 

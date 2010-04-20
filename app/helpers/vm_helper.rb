@@ -109,4 +109,13 @@ module VmHelper
     select_tag(field_name, grouped_options_for_select(os_types, (vm.os_type_id.downcase if vm)).html_safe)
   end
 
+  def any_hard_drives_attached_to?(vm)
+    vm.medium_attachments.any? { |ma| ma.type == :hard_disk }
+  end
+
+  def missing_hard_drive_attachment_warning
+    content_tag(:div, "This Virtual Machine has no Hard Drives attached to it.
+      Therefore, some functionality has been disabled.", :class => 'flash error')
+  end
+
 end

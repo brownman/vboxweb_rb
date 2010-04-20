@@ -1,21 +1,11 @@
 class VmController < ApplicationController
-  def show
-    @vm = VirtualBox::VM.find(params[:uuid])
+  before_filter :find_virtual_machine_from_uuid
+  before_filter :redirect_unless_vm_powered_off, :only => [:settings, :destroy]
 
-    unless @vm
-      flash[:error] = "This Virtual Machine does not exist!"
-      redirect_to root_path
-    end
+  def show
   end
 
   def settings
-    @vm = VirtualBox::VM.find(params[:uuid])
-
-    unless @vm.powered_off?
-      flash[:error] = "Cannot update a virtual machines settings unless it is powered off."
-      redirect_to vm_path
-    end
-
     if request.put?
       begin
         settings_params.each { |attribute, value| @vm.send("#{attribute}=", value) }
@@ -34,13 +24,6 @@ class VmController < ApplicationController
   end
 
   def destroy
-    @vm = VirtualBox::VM.find(params[:uuid])
-
-    unless @vm.powered_off?
-      flash[:error] = "Cannot delete a virtual machine unless it is powered off."
-      redirect_to vm_path
-    end
-
     if request.delete?
       @vm.destroy
       flash[:notice] = "#{@vm.name} has been deleted."
@@ -49,8 +32,6 @@ class VmController < ApplicationController
   end
 
   def control
-    @vm = VirtualBox::VM.find(params[:uuid])
-
     case params[:command]
     when 'start'
       @vm.start(:vrdp) if @vm.powered_off? || @vm.saved? || @vm.aborted?

@@ -1,0 +1,30 @@
+<div id="actions">
+  <% if vms_on_this_hd.size > 0 %>
+  <div class="action">
+    <div class="icon"><%= vbicon('controls/hd/remove_disabled_16px', 'Remove') %></div>
+    <div class="label">Remove</div>
+  </div>
+
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/hd/release_16px', 'Release'), hd_release_path) %></div>
+    <div class="label"><%= link_to('Release', hd_release_path) %></div>
+  </div>
+  <% else %>
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/hd/remove_16px', 'Remove'), hd_remove_path) %></div>
+    <div class="label"><%= link_to('Remove', hd_remove_path) %></div>
+  </div>
+
+  <div class="action">
+    <div class="icon"><%= vbicon('controls/hd/release_disabled_16px', 'Release') %></div>
+    <div class="label">Release</div>
+  </div>
+  <% end %>
+
+  <div class="action refresh">
+    <div class="icon"><%= link_to(vbicon('controls/hd/refresh_16px', 'Refresh'), "/hd/#{@hd.uuid}") %></div>
+    <div class="label"><%= link_to('Refresh', "/hd/#{@hd.uuid}") %></div>
+  </div>
+
+  <div style="clear:both;"></div>
+</div>

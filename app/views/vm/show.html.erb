@@ -1,5 +1,7 @@
 <h2 class="heading">Viewing <%= @vm.name %></h2>
 
+<%= missing_hard_drive_attachment_warning unless any_hard_drives_attached_to?(@vm) %>
+
 <%= render 'controls' %>
 
 <div id="categories">

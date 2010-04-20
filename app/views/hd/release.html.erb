@@ -1,0 +1,14 @@
+<h2 class="heading">Are you sure you want to do this?</h2>
+
+<p>Releasing a Hard Drive cannot be undone.</p>
+
+<p>
+  Once executed, the Hard Drive will be detached from all Virtual
+  Machines, and those <strong>machines will stop functioning</strong>.
+</p>
+
+<p>Are you sure you want to do this?</p>
+
+<%= form_tag(hd_release_path, :method => :delete) do %>
+  <%= submit_tag "Yes, I'm sure." %>
+<% end %>
