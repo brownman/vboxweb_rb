@@ -16,6 +16,14 @@ module VmAttributesHelper
     (differencing media and saved state files) of this machine.".html_safe)
   end
 
+  # Hmm, a BAD name! :-P Lets keep it!
+  def description_description
+    content_tag(:span, "Description of the virtual machine.<br /><br />
+    The description attribute can contain any text and is typically used to describe
+    the hardware and software configuration of the virtual machine in detail (i.e.
+    network settings, versions of the installed software and so on).".html_safe)
+  end
+
   def memory_size_description
     content_tag(:span, "System memory size in megabytes.".html_safe)
   end

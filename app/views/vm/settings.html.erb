@@ -26,6 +26,14 @@
         <div class="value"><%= text_field_tag('settings[snapshot_folder]', @vm.snapshot_folder) %></div>
         <div class="break"></div>
       </div>
+      <!-- Available in the next release of the Virtualbox gem
+      <div class="subheading">Other</div>
+      <div class="data">
+        <div class="label">Description: <%= description_description %></div>
+        <div class="value"><%= text_area_tag('settings[description]', @vm.description, :rows => 6, :cols => 42) %></div>
+        <div class="break"></div>
+      </div>
+      -->
     </fieldset>
 
     <fieldset id="system" class="data_box">
