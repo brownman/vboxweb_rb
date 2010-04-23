@@ -1,5 +1,32 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
+# Don't actually have full translation yet ;-)
+# Use it to translate codes from virtualbox gem into common names
 en:
-  hello: "Hello world"
+  vm:
+    audio_controllers:
+      ac97: ICH AC97
+      sb16: SoundBlaster 16
+    audio_drivers:
+      alsa: ALSA (Advanced Linux Sound Architecture)
+      core_audio: CoreAudio
+      direct_sound: DirectSound
+      mmpm: MMPM (MultiMedia Presentation Manager)
+      none: None
+      null: Null Audio Driver
+      oss: Open Sound System
+      pulse: PulseAudio
+      sol_audio: SolAudio
+      winmm: Microsoft WINMM Audio
+    network_adapter_types:
+      Am79C970A: PCnet-PCI II
+      Am79C973: PCnet-FAST III
+      I82540EM: Intel PRO/1000 MT Desktop
+      I82543GC: Intel PRO/1000 T Server
+      I82545EM: Intel PRO/1000 MT Server
+      null: No Adapter
+      Virtio: Paravirtualized Network
+    network_attachment_types:
+      bridged: Bridged Adapter
+      host_only: Host-only Adapter
+      internal: Internal Network
+      nat: NAT
+      null: Not Attached

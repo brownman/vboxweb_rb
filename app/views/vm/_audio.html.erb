@@ -3,12 +3,12 @@
   <% if @vm.audio_adapter.enabled %>
     <div class="data">
       <div class="label">Host Audio Driver:</div>
-      <div class="value"><%= formatted_audio_driver_from_vm(@vm) %></div>
+      <div class="value"><%= t("vm.audio_drivers.#{@vm.audio_adapter.audio_driver}") %></div>
       <div class="break"></div>
     </div>
     <div class="data">
       <div class="label">Audio Controller:</div>
-      <div class="value"><%= formatted_audio_controller_from_vm(@vm) %></div>
+      <div class="value"><%= t("vm.audio_controllers.#{@vm.audio_adapter.audio_controller}") %></div>
       <div class="break"></div>
     </div>
   <% else %>

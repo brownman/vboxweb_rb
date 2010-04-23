@@ -73,30 +73,6 @@ module VmHelper
     boot_order.join(', ')
   end
 
-  def formatted_audio_driver_from_vm(vm)
-    driver = vm.audio_adapter.audio_driver.to_s
-    driver = audio_drivers.find { |name, code| code == driver }
-    driver ? driver.first : driver
-  end
-
-  def formatted_audio_controller_from_vm(vm)
-    controller = vm.audio_adapter.audio_controller.to_s
-    controller = audio_controllers.find { |name, code| code == controller }
-    controller ? controller.first : controller
-  end
-
-  def formatted_network_attachment_type_from_network_adapter(network_adapter)
-    attachment_type = network_adapter.attachment_type.to_s
-    attachment_type = network_attachment_types.find { |name, code| code == attachment_type }
-    attachment_type ? attachment_type.first : attachment_type
-  end
-
-  def formatted_network_adapter_type_from_network_adapter(network_adapter)
-    adapter_type = network_adapter.adapter_type.to_s
-    adapter_type = network_adapter_types.find { |name, code| code == adapter_type }
-    adapter_type ? "#{adapter_type[0]} (#{adapter_type[1]})" : adapter_type
-  end
-
   def formatted_access_from_shared_folder(shared_folder)
     if shared_folder.accessible && shared_folder.writable
       "Full Access"

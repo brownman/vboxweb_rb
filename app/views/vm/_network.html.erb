@@ -4,7 +4,7 @@
     <% next unless network_adapter.enabled %>
     <div class="heading">
       Adapter <%= index + 1 %>
-      (<%= formatted_network_attachment_type_from_network_adapter(network_adapter) %> -
+      (<%= t("vm.network_attachment_types.#{network_adapter.attachment_type}") %> -
       <%= network_adapter.cable_connected ? 'connected' : 'not connected' %>)
     </div>
     <% unless %w{ null nat }.include?(network_adapter.attachment_type.to_s) %>
@@ -16,7 +16,7 @@
     <% end %>
     <div class="data">
       <div class="label">Adapter Type:</div>
-      <div class="value"><%= formatted_network_adapter_type_from_network_adapter(network_adapter) %></div>
+      <div class="value"><%= t("vm.network_adapter_types.#{network_adapter.adapter_type}") %> (<%= network_adapter.adapter_type %>)</div>
       <div class="break"></div>
     </div>
     <div class="data">
