@@ -11,11 +11,17 @@ en:
       direct_sound: DirectSound
       mmpm: MMPM (MultiMedia Presentation Manager)
       none: None
-      null: Null Audio Driver
+      'null': Null Audio Driver
       oss: Open Sound System
       pulse: PulseAudio
       sol_audio: SolAudio
       winmm: Microsoft WINMM Audio
+    boot_types:
+      dvd: CD / DVD-ROM
+      floppy: Floppy
+      hard_disk: Hard Disk
+      network: Network
+      null: None
     network_adapter_types:
       Am79C970A: PCnet-PCI II
       Am79C973: PCnet-FAST III

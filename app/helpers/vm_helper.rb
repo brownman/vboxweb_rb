@@ -12,7 +12,7 @@ module VmHelper
 
       os_types_array = Array.new
       os_types_group.each do |family, operating_system_types|
-        os_types_of_family = operating_system_types.collect { |os_type| [os_type.description, os_type.id.downcase] }
+        os_types_of_family = operating_system_types.collect { |os_type| [os_type.description, os_type.id] }
         os_types_array << [family, os_types_of_family]
       end
 
@@ -20,41 +20,22 @@ module VmHelper
     end
   end
 
-  def boot_types
-    [ ['None', 'null'],
-      ['Floppy', 'floppy'],
-      ['CD / DVD-ROM', 'dvd'],
-      ['Hard Disk', 'hard_disk'],
-      ['Network', 'network'] ]
-  end
-
-  def audio_drivers
-    [ ['None', 'none'],
-      ['Null Audio Driver', 'null'],
-      ['CoreAudio', 'core_audio'] ]
-  end
-
-  def audio_controllers
-    [ ['ICH AC97', 'ac97'],
-      ['SoundBlaster 16', 'sb16'] ]
-  end
-
-  def network_attachment_types
-    [ ['Not Attached', 'null'],
-      ['NAT', 'nat'],
-      ['Bridged Adapter', 'bridged'],
-      ['Internal Network', 'internal'],
-      ['Host-only Adapter', 'host_only'] ]
-  end
-
-  def network_adapter_types
-    [ ['No Adapter', 'null'],
-      ['PCnet-PCI II', 'Am79C970A'],
-      ['PCnet-FAST III', 'Am79C973'],
-      ['Intel PRO/1000 MT Desktop', 'I82540EM'],
-      ['Intel PRO/1000 T Server', 'I82543GC'],
-      ['Intel PRO/1000 MT Server', 'I82545EM'],
-      ['Paravirtualized Network', 'Virtio'] ]
+  def options_for(option_type, current_value = nil)
+    values = case option_type
+    when :audio_controllers
+      %w{ ac97 sb16 }
+    when :audio_drivers
+      %w{ none null alsa core_audio direct_sound mmpm oss pulse sol_audio winmm }
+    when :boot_types
+      %w{ null floppy dvd hard_disk network }
+    when :network_adapter_types
+      %w{ null Am79C970A Am79C973 I82540EM I82543GC I82545EM Virtio }
+    when :network_attachment_types
+      %w{ null nat bridged internal host_only }
+    end
+    values = values.collect { |key| [t("vm.#{option_type}.#{key}"), key] }
+    values = [[" - choose a #{option_type.to_s.humanize.singularize.downcase} - ", '']] + values
+    options_for_select(values, current_value)
   end
 
   def get_system_property(property_name)
@@ -67,8 +48,7 @@ module VmHelper
     get_system_property(:max_boot_position).times do |i|
       boot_item = vm.interface.get_boot_order(i + 1).to_s
       next if boot_item == 'null'
-      boot_type = boot_types.find { |name, code| code == boot_item }
-      boot_order << (boot_type ? boot_type.first : boot_item)
+      boot_order << t("vm.boot_types.#{boot_item}")
     end
     boot_order.join(', ')
   end
@@ -79,10 +59,6 @@ module VmHelper
     elsif shared_folder.accessible
       "Read-only"
     end
-  end
-
-  def vm_ostype_dropdown(field_name, vm=nil)
-    select_tag(field_name, grouped_options_for_select(os_types, (vm.os_type_id.downcase if vm)).html_safe)
   end
 
   def any_hard_drives_attached_to?(vm)
