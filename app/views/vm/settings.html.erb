@@ -1,5 +1,9 @@
 <h2 class="heading">Updating <%= @vm.name %></h2>
 
+<div class="description_note">
+  ( hover over any of the labels to get a description of what the value is for )
+</div>
+
 <div id="vm_properties">
   <%= form_tag(vm_settings_path, :method => :put) do %>
 
@@ -7,18 +11,18 @@
       <legend class="heading">General</legend>
       <div class="subheading">Basic</div>
       <div class="data">
-        <div class="label">Name:</div>
+        <div class="label">Name: <%= name_description %></div>
         <div class="value"><%= text_field_tag('settings[name]', @vm.name) %></div>
         <div class="break"></div>
       </div>
       <div class="data">
-        <div class="label">OS Type:</div>
+        <div class="label">OS Type: <%= os_type_id_description %></div>
         <div class="value"><%= vm_ostype_dropdown('settings[os_type_id]', @vm) %></div>
         <div class="break"></div>
       </div>
       <div class="subheading">Advanced</div>
       <div class="data">
-        <div class="label">Snapshot Folder:</div>
+        <div class="label">Snapshot Folder: <%= snapshot_folder_description %></div>
         <div class="value"><%= text_field_tag('settings[snapshot_folder]', @vm.snapshot_folder) %></div>
         <div class="break"></div>
       </div>
@@ -28,7 +32,7 @@
       <legend class="heading">System</legend>
       <div class="subheading">Motherboard</div>
       <div class="data">
-        <div class="label">Base Memory:</div>
+        <div class="label">Base Memory: <%= memory_size_description %></div>
         <div class="value">
           <%= text_field_tag('settings[memory_size]', @vm.memory_size, :size => 4) %> MB
           <small>
@@ -40,7 +44,7 @@
       </div>
       <div class="heading">Processor</div>
       <div class="data">
-        <div class="label">Processor(s):</div>
+        <div class="label">Processor(s): <%= cpu_count_description %></div>
         <div class="value">
           <%= text_field_tag('settings[cpu_count]', @vm.cpu_count, :size => 4) %>
           <small>
@@ -56,7 +60,7 @@
       <legend class="heading">Display</legend>
       <div class="subheading">Video</div>
       <div class="data">
-        <div class="label">Video Memory:</div>
+        <div class="label">Video Memory: <%= vram_size_description %></div>
         <div class="value">
           <%= text_field_tag('settings[vram_size]', @vm.vram_size, :size => 4) %> MB
           <small>
@@ -67,7 +71,7 @@
         <div class="break"></div>
       </div>
       <div class="data">
-        <div class="label">3D Acceleration:</div>
+        <div class="label">3D Acceleration: <%= accelerate_3d_enabled_description %></div>
         <div class="value">
           <%= radio_button_tag('settings[accelerate_3d_enabled]', true, @vm.accelerate_3d_enabled) %> Enabled
           <%= radio_button_tag('settings[accelerate_3d_enabled]', false, !@vm.accelerate_3d_enabled) %> Disabled
@@ -75,7 +79,7 @@
         <div class="break"></div>
       </div>
       <div class="data">
-        <div class="label">2D Video Acceleration:</div>
+        <div class="label">2D Video Acceleration: <%= accelerate_2d_video_enabled_description %></div>
         <div class="value">
           <%= radio_button_tag('settings[accelerate_2d_video_enabled]', true, @vm.accelerate_2d_video_enabled) %> Enabled
           <%= radio_button_tag('settings[accelerate_2d_video_enabled]', false, !@vm.accelerate_2d_video_enabled) %> Disabled
