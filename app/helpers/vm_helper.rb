@@ -47,8 +47,7 @@ module VmHelper
     boot_order = Array.new
     get_system_property(:max_boot_position).times do |i|
       boot_item = vm.interface.get_boot_order(i + 1).to_s
-      next if boot_item == 'null'
-      boot_order << t("vm.boot_types.#{boot_item}")
+      boot_order << t("vm.boot_types.#{boot_item}") unless boot_item == 'null'
     end
     boot_order.join(', ')
   end
