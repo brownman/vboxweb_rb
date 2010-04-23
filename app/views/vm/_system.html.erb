@@ -7,6 +7,11 @@
     <div class="break"></div>
   </div>
   <div class="data">
+    <div class="label">Memory Balloon Size:</div>
+    <div class="value"><%= number_with_delimiter(@vm.memory_balloon_size) %> MB</div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
     <div class="label">Boot Order:</div>
     <div class="value"><%= formatted_boot_order_from_vm(@vm) %></div>
     <div class="break"></div>
