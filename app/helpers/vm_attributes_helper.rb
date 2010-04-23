@@ -20,6 +20,10 @@ module VmAttributesHelper
     content_tag(:span, "System memory size in megabytes.".html_safe)
   end
 
+  def memory_balloon_size_description
+    content_tag(:span, "Initial memory balloon size in megabytes.".html_safe)
+  end
+
   def cpu_count_description
     content_tag(:span, "Number of virtual CPUs in the VM.".html_safe)
   end
