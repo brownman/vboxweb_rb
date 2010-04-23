@@ -21,6 +21,6 @@
   <% %w{ general system display storage audio network usb shared_folders }.each do |data_type| %>
     <% hidden = ((params[:view].blank? && data_type != 'general') ||
                  (params[:view].present? && params[:view] != data_type)) %>
-    <%= render data_type, :hidden => hidden %>
+    <%= render "vm/display/#{data_type}", :hidden => hidden %>
   <% end %>
 </div>
