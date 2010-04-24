@@ -5,7 +5,16 @@
 </div>
 
 <div class="reload"><%= link_to('Reload', '') unless @export.percent_exported > 0 || @export.completed? %></div>
-<div class="download"><%= link_to('Download', vm_export_download_path) if @export.completed? %></div>
+
+<% if @export.completed? %>
+  <div class="download">
+    <% if File.exist?(@export.packaged_file_path) || File.exist?(@export.filepath) %>
+      <%= link_to('Download', vm_export_download_path) %>
+    <% else %>
+      (the files needed to download have<br />been deleted since this export was run)
+    <% end %>
+  </div>
+<% end %>
 
 <%= javascript_tag("stop_progress_bar();") if @export.completed? %>
 <%= javascript_tag("$('no_background_process').hide();") if @export.percent_exported > 0 %>

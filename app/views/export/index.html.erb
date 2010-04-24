@@ -3,7 +3,7 @@
 <h3>Create Export</h3>
 <%= render 'form' %>
 
-<% previous_exports = Export.find_all_by_machine_id(@vm.uuid) %>
+<% previous_exports = Export.find_all_by_machine_uuid(@vm.uuid) %>
 <% if previous_exports.size > 0 %>
   <h3>Previous Exports</h3>
   <table class="previous_exports_table">
@@ -21,7 +21,13 @@
           <td><%= link_to '(view export progress)', vm_export_path(:id => export.id) %></td>
         <% end %>
         <% if export.completed? %>
-          <td><%= link_to '(download)', vm_export_download_path(:id => export.id) %></td>
+          <td>
+            <% if File.exist?(export.packaged_file_path) || File.exist?(export.filepath) %>
+              <%= link_to '(download)', vm_export_download_path(:id => export.id) %>
+            <% else %>
+              (deleted since exported)
+            <% end %>
+          </td>
         <% end %>
       </tr>
     <% end %>
