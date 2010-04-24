@@ -35,7 +35,7 @@ module VmHelper
     end
     values = values.collect { |key| [t("vm.#{option_type}.#{key}"), key] }
     values = [[" - choose a #{option_type.to_s.humanize.singularize.downcase} - ", '']] + values
-    options_for_select(values, current_value)
+    options_for_select(values, current_value.to_s)
   end
 
   def get_system_property(property_name)
