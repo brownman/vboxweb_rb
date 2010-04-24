@@ -50,4 +50,17 @@ module VmAttributesHelper
     to make use of the 2D video acceleration support available on the host. ".html_safe)
   end
 
+  def audio_enabled_description
+    content_tag(:span, "Whether the audio adapter is present in the guest system.<br /><br />
+    If disabled, the virtual guest hardware will not contain any audio adapter.".html_safe)
+  end
+
+  def audio_driver_description
+    content_tag(:span, "Audio driver the adapter is connected to.".html_safe)
+  end
+
+  def audio_controller_description
+    content_tag(:span, "The audio hardware to emulate.".html_safe)
+  end
+
 end

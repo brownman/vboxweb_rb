@@ -1,0 +1,32 @@
+<fieldset id="display" class="data_box">
+  <legend class="heading">Display</legend>
+
+  <div class="subheading">Video</div>
+  <div class="data">
+    <div class="label">Video Memory: <%= vram_size_description %></div>
+    <div class="value">
+      <%= text_field_tag('settings[vram_size]', @vm.vram_size, :size => 4) %> MB
+      <small>
+        (range: <%= get_system_property(:min_guest_vram) %> -
+         <%= get_system_property(:max_guest_vram) %>)
+      </small>
+    </div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">3D Acceleration: <%= accelerate_3d_enabled_description %></div>
+    <div class="value">
+      <%= radio_button_tag('settings[accelerate_3d_enabled]', true, @vm.accelerate_3d_enabled) %> Enabled
+      <%= radio_button_tag('settings[accelerate_3d_enabled]', false, !@vm.accelerate_3d_enabled) %> Disabled
+    </div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">2D Video Acceleration: <%= accelerate_2d_video_enabled_description %></div>
+    <div class="value">
+      <%= radio_button_tag('settings[accelerate_2d_video_enabled]', true, @vm.accelerate_2d_video_enabled) %> Enabled
+      <%= radio_button_tag('settings[accelerate_2d_video_enabled]', false, !@vm.accelerate_2d_video_enabled) %> Disabled
+    </div>
+    <div class="break"></div>
+  </div>
+</fieldset>

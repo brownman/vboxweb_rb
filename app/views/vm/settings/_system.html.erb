@@ -1,0 +1,40 @@
+<fieldset id="system" class="data_box">
+  <legend class="heading">System</legend>
+
+  <div class="subheading">Motherboard</div>
+  <div class="data">
+    <div class="label">Base Memory: <%= memory_size_description %></div>
+    <div class="value">
+      <%= text_field_tag('settings[memory_size]', @vm.memory_size, :size => 4) %> MB
+      <small>
+        (range: <%= get_system_property(:min_guest_ram) %> -
+         <%= get_system_property(:max_guest_ram) %>)
+      </small>
+    </div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Memory Balloon Size: <%= memory_balloon_size_description %></div>
+    <div class="value">
+      <%= text_field_tag('settings[memory_balloon_size]', @vm.memory_balloon_size, :size => 4) %> MB
+      <small>
+        (range: <%= get_system_property(:min_guest_ram) %> -
+         <%= get_system_property(:max_guest_ram) %>)
+      </small>
+    </div>
+    <div class="break"></div>
+  </div>
+
+  <div class="heading">Processor</div>
+  <div class="data">
+    <div class="label">Processor(s): <%= cpu_count_description %></div>
+    <div class="value">
+      <%= text_field_tag('settings[cpu_count]', @vm.cpu_count, :size => 4) %>
+      <small>
+        (range: <%= get_system_property(:min_guest_cpu_count) %> -
+         <%= get_system_property(:max_guest_cpu_count) %>)
+      </small>
+    </div>
+    <div class="break"></div>
+  </div>
+</fieldset>

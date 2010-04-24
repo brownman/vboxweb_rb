@@ -8,18 +8,20 @@ class VmController < ApplicationController
   def settings
     if request.put?
       begin
-        settings_params.each { |attribute, value| @vm.send("#{attribute}=", value) }
+        vm_settings = convert_settings_in(params[:settings])
+        audio_settings = vm_settings.delete(:audio_adapter)
+
+        audio_settings.each { |attribute, value| @vm.audio_adapter.send("#{attribute}=", value) }
+        vm_settings.each { |attribute, value| @vm.send("#{attribute}=", value) }
+
         @vm.save
         flash[:notice] = "#{@vm.name} settings have been updated."
-      rescue VirtualBox::Exceptions::CommandFailedException => e
-        if e.to_s =~ /A session for the machine [\w\']* is currently open/
-          flash[:error] = "Cannot update settings because the virtual machine is either running, paused, or someone is already editing it."
-        else
-          flash[:error] = e.to_s
-        end
-      end
+        redirect_to vm_path
+      rescue VirtualBox::Exceptions::InvalidObjectStateException => e
+        flash[:error] = "Cannot update settings because the virtual machine is either running, paused, or someone is already editing it."
+        redirect_to vm_path
 
-      redirect_to vm_path
+      end
     end
   end
 
@@ -63,16 +65,20 @@ class VmController < ApplicationController
 
   private
 
-  def settings_params
-    params[:settings].each do |attribute, value|
-      case value
-      when /^\d/ then value = value.to_i
-      when 'true' then value = true
-      when 'false' then value = false
+  def convert_settings_in(params)
+    params.each do |attribute, value|
+      if value.is_a?(Hash)
+        value = convert_settings_in(value)
+      else
+        case value
+        when /^\d/ then value = value.to_i
+        when 'true' then value = true
+        when 'false' then value = false
+        end
       end
-      params[:settings][attribute] = value
+      params[attribute] = value
     end
 
-    params[:settings]
+    params
   end
 end

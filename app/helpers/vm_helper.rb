@@ -25,7 +25,15 @@ module VmHelper
     when :audio_controllers
       %w{ ac97 sb16 }
     when :audio_drivers
-      %w{ none null alsa core_audio direct_sound mmpm oss pulse sol_audio winmm }
+      if VirtualBox::Platform.mac?
+        %w{ null core_audio }
+      elsif VirtualBox::Platform.windows?
+        %w{ null direct_sound winmm }
+      elsif VirtualBox::Platform.linux?
+        %w{ null alsa oss pulse }
+      else
+        %w{ null alsa core_audio direct_sound mmpm oss pulse sol_audio winmm }
+      end
     when :boot_types
       %w{ null floppy dvd hard_disk network }
     when :network_adapter_types
