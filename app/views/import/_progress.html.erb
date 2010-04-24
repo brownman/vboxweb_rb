@@ -5,7 +5,16 @@
 </div>
 
 <div class="reload"><%= link_to('Reload', '') unless @import.percent_imported > 0 || @import.completed? %></div>
-<div class="download"><%= link_to('View Machine', vm_path(:uuid => @import.machine_uuid)) if @import.completed? %></div>
+
+<% if @import.completed? %>
+  <div class="view_machine">
+    <% if @import.machine %>
+      <%= link_to('View Machine', vm_path(:uuid => @import.machine_uuid)) %>
+    <% else %>
+      (the imported machine has been<br />deleted since this import was run)
+    <% end %>
+  </div>
+<% end %>
 
 <%= javascript_tag("stop_progress_bar();") if @import.completed? %>
 <%= javascript_tag("$('no_background_process').hide();") if @import.percent_imported > 0 %>
