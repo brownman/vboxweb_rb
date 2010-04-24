@@ -2,7 +2,7 @@
 
 <div id="export_status"><%= render 'progress' %></div>
 
-<%= javascript_tag("update_export_progress('export_status', '#{vm_export_progress_path}');") unless @export.completed? %>
+<%= javascript_tag("update_progress_bar('export_status', '#{vm_export_progress_path}');") unless @export.completed? %>
 
 <% unless @export.completed? %>
   <div id="no_background_process">

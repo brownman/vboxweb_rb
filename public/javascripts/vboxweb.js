@@ -1,11 +1,11 @@
-var export_progress_updater;
+var progress_updater;
 
-function update_export_progress(element_id, url) {
-  export_progress_updater = new Ajax.PeriodicalUpdater(element_id, url, { evalScripts: true });
+function update_progress_bar(element_id, url) {
+  progress_updater = new Ajax.PeriodicalUpdater(element_id, url, { evalScripts: true });
 }
 
-function stop_current_export_progress() {
-  if(export_progress_updater) { export_progress_updater.stop(); }
+function stop_progress_bar() {
+  if(progress_updater) { progress_updater.stop(); }
 }
 
 document.observe('dom:loaded', function() {
