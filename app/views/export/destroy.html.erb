@@ -1,0 +1,11 @@
+<h2 class="heading">Are you sure you want to do this?</h2>
+
+<p>Deleting a Virtual Machine export cannot be undone.</p>
+
+<p>Once executed, the <strong>virtual machine export will be gone for good</strong>.</p>
+
+<p>Are you sure you want to do this?</p>
+
+<%= form_tag(vm_export_destroy_path, :method => :delete) do %>
+  <%= submit_tag "Yes, I'm sure." %>
+<% end %>

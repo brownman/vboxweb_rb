@@ -30,6 +30,16 @@ class ExportController < ApplicationController
     send_file(@export.package, :type => 'application/x-tar')
   end
 
+  def destroy
+    if request.delete?
+      require 'fileutils'
+      FileUtils.rm_rf(@export.packaged_dir_path) if File.directory?(@export.packaged_dir_path)
+      @export.destroy
+      flash[:notice] = "The selected export has now been deleted."
+      redirect_to vm_exports_path
+    end
+  end
+
   private
 
   def find_export_from_id

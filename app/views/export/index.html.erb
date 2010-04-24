@@ -17,18 +17,17 @@
         <td class="date"><%= export.created_at.to_date %></td>
         <td class="filename"><%= export.filename %></td>
         <td class="status"><%= export.status %> <%= "(#{export.percent_exported}%)" if export.exporting? %></td>
-        <% if export.exporting? %>
-          <td><%= link_to '(view export progress)', vm_export_path(:id => export.id) %></td>
-        <% end %>
-        <% if export.completed? %>
-          <td>
+        <td><%= link_to 'view export progress', vm_export_path(:id => export.id) if export.exporting? %></td>
+        <td>
+          <% if export.completed? %>
             <% if File.exist?(export.packaged_file_path) || File.exist?(export.filepath) %>
-              <%= link_to '(download)', vm_export_download_path(:id => export.id) %>
+              <%= link_to 'download', vm_export_download_path(:id => export.id) %>
             <% else %>
               (deleted since exported)
             <% end %>
-          </td>
-        <% end %>
+          <% end %>
+        </td>
+        <td><%= link_to 'destroy', vm_export_destroy_path(:id => export.id) if export.failed? || export.completed? %></td>
       </tr>
     <% end %>
   </table>
