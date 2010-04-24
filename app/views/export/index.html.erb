@@ -27,7 +27,7 @@
             <% end %>
           <% end %>
         </td>
-        <td><%= link_to 'destroy', vm_export_destroy_path(:id => export.id) if export.failed? || export.completed? %></td>
+        <td><%= link_to 'delete', vm_export_destroy_path(:id => export.id) if export.failed? || export.completed? %></td>
       </tr>
     <% end %>
   </table>
