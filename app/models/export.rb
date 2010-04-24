@@ -1,6 +1,6 @@
 class Export < ActiveRecord::Base
 
-  validates_presence_of :machine_id, :export_data
+  validates_presence_of :machine_uuid, :export_data
 
   serialize :export_data
 
@@ -21,7 +21,7 @@ class Export < ActiveRecord::Base
   end
 
   def machine
-    @machine ||= VirtualBox::VM.find(machine_id)
+    @machine ||= VirtualBox::VM.find(machine_uuid)
   end
 
   def filename
@@ -44,6 +44,8 @@ class Export < ActiveRecord::Base
     update_attribute(:status, 'packaging')
     package
     update_attribute(:status, 'completed')
+  rescue
+    update_attribute(:status, 'failed')
   end
   handle_asynchronously :export!
 

@@ -11,7 +11,7 @@ class ExportController < ApplicationController
 
   def new
     if request.post?
-      export = Export.new(:machine_id => @vm.uuid, :export_data => params[:export])
+      export = Export.new(:machine_uuid => @vm.uuid, :export_data => params[:export])
       if export.save
         export.export!
         flash[:notice] = "#{@vm.name} is now exporting. You can see the progress of that export below."
