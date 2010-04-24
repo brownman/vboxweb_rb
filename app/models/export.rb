@@ -38,8 +38,8 @@ class Export < ActiveRecord::Base
       return false
     end
     update_attribute(:status, 'exporting')
-    machine.export(filepath) do |percent|
-      update_attribute(:percent_exported, percent)
+    machine.export(filepath) do |progress|
+      update_attribute(:percent_exported, progress.percent)
     end
     update_attribute(:status, 'packaging')
     package
@@ -84,7 +84,7 @@ class Export < ActiveRecord::Base
     if filename.blank?
       errors.add_to_base("You must specify a filename to export to.")
       false
-    elsif File.exist?(filepath)
+    elsif File.directory?(packaged_dir_path)
       errors.add_to_base("Export of this name already exists. Please choose another.")
       false
     else

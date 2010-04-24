@@ -6,7 +6,7 @@ class Import < ActiveRecord::Base
 
   STATUSES = {
     :starting => 'Starting...',
-    :failed => 'Failed... (is the vm running?)',
+    :failed => 'Failed...',
     :importing => 'Importing...',
     :completed => "Completed"
   }
@@ -19,8 +19,8 @@ class Import < ActiveRecord::Base
 
   def import!
     update_attribute(:status, 'importing')
-    vm = VirtualBox::VM.import(filepath) do |percent|
-      update_attribute(:percent_imported, percent)
+    vm = VirtualBox::VM.import(filepath) do |progress|
+      update_attribute(:percent_imported, progress.percent)
     end
     update_attribute(:machine_uuid, vm.uuid)
     update_attribute(:status, 'completed')
