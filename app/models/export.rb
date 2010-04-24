@@ -8,7 +8,7 @@ class Export < ActiveRecord::Base
 
   STATUSES = {
     :starting => 'Starting...',
-    :failed => 'Failed... (if the vm running?)',
+    :failed => 'Failed... (is the vm running?)',
     :exporting => 'Exporting...',
     :packaging => 'Packaging...',
     :completed => "Completed"
