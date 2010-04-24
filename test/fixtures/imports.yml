@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  filepath: MyString
+  status: MyString
+  percent_imported: 1
+
+two:
+  filepath: MyString
+  status: MyString
+  percent_imported: 1

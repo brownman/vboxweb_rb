@@ -1,0 +1,11 @@
+<div class="status"><%= Import::STATUSES[@import.status.to_sym] %></div>
+<div class="percent_imported">
+  <div class="bar" style="width: <%= @import.percent_imported %>%;"></div>
+  <div class="text"><%= @import.percent_imported %>%  </div>
+</div>
+
+<div class="reload"><%= link_to('Reload', '') unless @import.percent_imported > 0 || @import.completed? %></div>
+<div class="download"><%= link_to('View Machine', vm_path(:uuid => @import.machine_uuid)) if @import.completed? %></div>
+
+<%= javascript_tag("stop_progress_bar();") if @import.completed? %>
+<%= javascript_tag("$('no_background_process').hide();") if @import.percent_imported > 0 %>

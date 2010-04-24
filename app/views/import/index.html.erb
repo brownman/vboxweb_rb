@@ -1,0 +1,36 @@
+<h2 class="heading">Import a Virtual Machine</h2>
+
+<h3>Import from a template</h3>
+<ul>
+<% Dir[Rails.root.join('imports/**/*.ovf').to_s].each do |file| %>
+  <li><%= link_to File.basename(file), vm_new_import_path(:import => { :filepath => file }) %></li>
+<% end %>
+</ul>
+
+<h3>Create Import from Filepath</h3>
+<%= render 'form' %>
+
+<% previous_imports = Import.all %>
+<% if previous_imports.size > 0 %>
+  <h3>Previous Imports</h3>
+  <table class="previous_imports_table">
+    <tr class="import_headings">
+      <th class="date">Imported</th>
+      <th class="status">Status</th>
+      <th class="filename">OVF Filename</th>
+    </tr>
+    <% previous_imports.each do |import| %>
+      <tr class="import">
+        <td class="date"><%= import.created_at.to_date %></td>
+        <td class="status"><%= import.status %> <%= "(#{import.percent_imported}%)" if import.importing? %></td>
+        <td class="filename"><%= File.basename(import.filepath) %></td>
+        <% if import.importing? %>
+          <td><%= link_to '(view import progress)', vm_import_path(:id => import.id) %></td>
+        <% end %>
+        <% if import.completed? %>
+          <td><%= link_to '(view machine)', vm_path(:uuid => import.machine_uuid) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

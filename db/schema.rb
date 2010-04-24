@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100417030507) do
+ActiveRecord::Schema.define(:version => 20100424054907) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -27,10 +27,19 @@ ActiveRecord::Schema.define(:version => 20100417030507) do
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "exports", :force => true do |t|
-    t.string   "machine_id"
+    t.string   "machine_uuid"
     t.string   "export_data"
     t.string   "status"
     t.integer  "percent_exported"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "imports", :force => true do |t|
+    t.string   "filepath"
+    t.string   "status"
+    t.integer  "percent_imported"
+    t.string   "machine_uuid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

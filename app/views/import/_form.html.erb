@@ -1,0 +1,13 @@
+<%= form_tag(vm_new_import_path, :method => :post) do %>
+
+  <fieldset class="data_box">
+    <div class="data">
+      <div class="label">Filepath: (to a valid ovf file)</div>
+      <div class="value"><%= text_field_tag('import[filepath]', (params[:import][:filepath] if params[:import]), :size => 60) %></div>
+      <div class="break"></div>
+    </div>
+  </fieldset>
+
+  <%= submit_tag 'Import Virtual Machine' %>
+
+<% end %>

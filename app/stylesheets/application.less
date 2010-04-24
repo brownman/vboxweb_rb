@@ -276,7 +276,8 @@ body {
     }
   }
 
-  .previous_exports_table {
+  .previous_exports_table,
+  .previous_imports_table {
     tr {
       th, td {
         padding: 3px 20px;
@@ -285,12 +286,14 @@ body {
     }
   }
 
-  #export_status {
+  #export_status,
+  #import_status {
     text-align: center;
     font-size: 1.3em;
     margin-top: 50px;
 
-    .percent_exported {
+    .percent_exported,
+    .percent_imported {
       position: relative;
       width: 200px;
       height: 25px;
@@ -319,7 +322,8 @@ body {
     margin-top: 20px;
   }
 
-  #return_to_exports {
+  #return_to_exports,
+  #return_to_imports {
     text-align: center;
     margin-top: 35px;
   }

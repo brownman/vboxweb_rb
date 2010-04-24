@@ -5,6 +5,7 @@
 * Pushed Virtual Machine export to a background process
     * There is also a nice AJAX updater which displays a progress bar thanks to some recent changes in the VirtualBox gem that make it possible to get the current progress.
     * This adds an extra installation step. Please see README.rdoc
+* Added an Import functionality that uses the same progress update as Export
 * Added ability to download exported Virtual Machines to a Vagrant compatible box file
 * Ability to release a Hard Drive from all Virtual Machines, and then destroy it (current cannot create new ones)
 * Added a couple more Virtual Machine settings to the display page

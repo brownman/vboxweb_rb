@@ -4,6 +4,7 @@
 mkmf.log
 *.tmproj
 exports
+imports
 log
 public/javascripts/cache/
 public/stylesheets
