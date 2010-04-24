@@ -1,6 +1,9 @@
 <div id="vm_list">
   <% @vm_list ||= VirtualBox::VM.all.sort_by { |vm| vm.name.downcase } %>
-  <h2>Virtual Machines (<%= number_with_delimiter(@vm_list.size) %>)</h2>
+
+  <div class="header">
+    <h2>Virtual Machines (<%= number_with_delimiter(@vm_list.size) %>)</h2>
+  </div>
 
   <% @vm_list.each do |vm| %>
   <div class="record<%= ' current' if params[:uuid] == vm.uuid %>">
@@ -11,9 +14,11 @@
   </div>
   <% end %>
 
-  <div class="links">
-    <ul>
-      <li><%= link_to 'Import', vm_imports_path %></li>
-    </ul>
+  <div class="footer">
+    <div class="links">
+      <ul>
+        <li><%= link_to 'Import Machine', vm_imports_path %></li>
+      </ul>
+    </div>
   </div>
 </div>

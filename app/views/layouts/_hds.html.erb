@@ -1,6 +1,9 @@
 <div id="hd_list">
   <% @hd_list ||= VirtualBox::HardDrive.all.sort_by { |hd| hd.filename.downcase } %>
-  <h2>Hard Drives (<%= number_with_delimiter(@hd_list.size) %>)</h2>
+
+  <div class="header">
+    <h2>Hard Drives (<%= number_with_delimiter(@hd_list.size) %>)</h2>
+  </div>
 
   <% @hd_list.each do |drive| %>
   <div class="record<%= ' current' if params[:uuid] == drive.uuid %>">
@@ -9,4 +12,6 @@
     <div style="clear:both;"></div>
   </div>
   <% end %>
+
+  <div class="footer">&nbsp;</div>
 </div>
