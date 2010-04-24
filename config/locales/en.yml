@@ -6,16 +6,15 @@ en:
       ac97: ICH AC97
       sb16: SoundBlaster 16
     audio_drivers:
-      alsa: ALSA (Advanced Linux Sound Architecture)
+      alsa: Advanced Linux Sound Architecture
       core_audio: CoreAudio
       direct_sound: DirectSound
-      mmpm: MMPM (MultiMedia Presentation Manager)
-      none: None
-      'null': Null Audio Driver
+      mmpm: MultiMedia Presentation Manager
+      'null': "Null/Dummy Audio Driver"
       oss: Open Sound System
       pulse: PulseAudio
-      sol_audio: SolAudio
-      winmm: Microsoft WINMM Audio
+      sol_audio: Solaris Audio
+      winmm: Windows Multimedia
     boot_types:
       dvd: CD / DVD-ROM
       floppy: Floppy
