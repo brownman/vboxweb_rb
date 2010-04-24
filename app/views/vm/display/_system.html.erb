@@ -17,6 +17,11 @@
     <div class="break"></div>
   </div>
   <div class="data">
+    <div class="label">ACPI:</div>
+    <div class="value"><%= formatted_state_from(@vm.bios.acpi_enabled) %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
     <div class="label">IO APIC:</div>
     <div class="value"><%= formatted_state_from(@vm.bios.io_apic_enabled) %></div>
     <div class="break"></div>

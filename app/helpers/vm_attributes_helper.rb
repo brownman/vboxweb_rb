@@ -32,6 +32,15 @@ module VmAttributesHelper
     content_tag(:span, "Initial memory balloon size in megabytes.".html_safe)
   end
 
+  def acpi_enabled_description
+    content_tag(:span, "ACPI support flag.".html_safe)
+  end
+
+  def io_apic_enabled_description
+    content_tag(:span, "IO APIC support flag.<br /><br />
+    If set, VirtualBox will provide an IO APIC and support IRQs above 15.".html_safe)
+  end
+
   def cpu_count_description
     content_tag(:span, "Number of virtual CPUs in the VM.".html_safe)
   end

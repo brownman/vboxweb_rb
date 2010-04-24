@@ -24,6 +24,22 @@
     </div>
     <div class="break"></div>
   </div>
+  <div class="data">
+    <div class="label">ACPI: <%= acpi_enabled_description %></div>
+    <div class="value">
+      <%= radio_button_tag('settings[bios][acpi_enabled]', true, @vm.bios.acpi_enabled) %> Enabled
+      <%= radio_button_tag('settings[bios][acpi_enabled]', false, !@vm.bios.acpi_enabled) %> Disabled
+    </div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">IO APIC: <%= io_apic_enabled_description %></div>
+    <div class="value">
+      <%= radio_button_tag('settings[bios][io_apic_enabled]', true, @vm.bios.io_apic_enabled) %> Enabled
+      <%= radio_button_tag('settings[bios][io_apic_enabled]', false, !@vm.bios.io_apic_enabled) %> Disabled
+    </div>
+    <div class="break"></div>
+  </div>
 
   <div class="heading">Processor</div>
   <div class="data">
