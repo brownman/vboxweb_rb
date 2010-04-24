@@ -24,18 +24,17 @@
         <td class="date"><%= import.created_at.to_date %></td>
         <td class="status"><%= import.status %> <%= "(#{import.percent_imported}%)" if import.importing? %></td>
         <td class="filename"><%= File.basename(import.filepath) %></td>
-        <% if import.importing? %>
-          <td><%= link_to '(view import progress)', vm_import_path(:id => import.id) %></td>
-        <% end %>
-        <% if import.completed? %>
-          <td>
+        <td><%= link_to 'view import progress', vm_import_path(:id => import.id) if import.importing? %></td>
+        <td>
+          <% if import.completed? %>
             <% if import.machine %>
               <%= link_to '(view machine)', vm_path(:uuid => import.machine_uuid) %>
             <% else %>
               (deleted since imported)
             <% end %>
-          </td>
-        <% end %>
+          <% end %>
+        </td>
+        <td><%= link_to 'delete', vm_import_destroy_path(:id => import.id) if import.failed? || import.completed? %></td>
       </tr>
     <% end %>
   </table>

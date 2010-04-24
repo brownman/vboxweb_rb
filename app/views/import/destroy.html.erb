@@ -1,0 +1,11 @@
+<h2 class="heading">Are you sure you want to do this?</h2>
+
+<p>You will only be deleting the record of the import.</p>
+
+<p>The actual machine that was imported will need to be <strong>removed separately.</strong></p>
+
+<p>Are you sure you want to do this?</p>
+
+<%= form_tag(vm_import_destroy_path, :method => :delete) do %>
+  <%= submit_tag "Yes, I'm sure." %>
+<% end %>

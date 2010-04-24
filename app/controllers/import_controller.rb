@@ -24,6 +24,14 @@ class ImportController < ApplicationController
     render :layout => false
   end
 
+  def destroy
+    if request.delete?
+      @import.destroy
+      flash[:notice] = "The selected import has now been deleted. The machine it imported still exists though, and needs to be deleted separately."
+      redirect_to vm_imports_path
+    end
+  end
+
   private
 
   def find_import_from_id
