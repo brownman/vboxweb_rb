@@ -18,20 +18,20 @@
   </div>
 
   <div class="heading">Remote Display</div>
-  <% if @vm.interface.vrdp_server.enabled %>
+  <% if @vm.vrdp_server.enabled %>
     <div class="data">
       <div class="label">Server Port:</div>
-      <div class="value"><%= @vm.interface.vrdp_server.ports %></div>
+      <div class="value"><%= @vm.vrdp_server.ports %></div>
       <div class="break"></div>
     </div>
     <div class="data">
       <div class="label">Authentication Method:</div>
-      <div class="value"><%= @vm.interface.vrdp_server.auth_type %></div>
+      <div class="value"><%= @vm.vrdp_server.auth_type %></div>
       <div class="break"></div>
     </div>
     <div class="data">
       <div class="label">Authentication Timeout:</div>
-      <div class="value"><%= @vm.interface.vrdp_server.auth_timeout %></div>
+      <div class="value"><%= @vm.vrdp_server.auth_timeout %></div>
       <div class="break"></div>
     </div>
   <% else %>
