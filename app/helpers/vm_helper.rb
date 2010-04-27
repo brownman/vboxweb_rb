@@ -34,6 +34,8 @@ module VmHelper
       else
         %w{ null alsa core_audio direct_sound mmpm oss pulse sol_audio winmm }
       end
+    when :auth_types
+      %w{ null external guest }
     when :boot_types
       %w{ null floppy dvd hard_disk network }
     when :network_adapter_types

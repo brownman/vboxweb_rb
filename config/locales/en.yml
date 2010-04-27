@@ -15,6 +15,10 @@ en:
       pulse: PulseAudio
       sol_audio: Solaris Audio
       winmm: Windows Multimedia
+    auth_types:
+      external: External
+      guest: Guest
+      'null': 'No Authentication'
     boot_types:
       dvd: CD / DVD-ROM
       floppy: Floppy

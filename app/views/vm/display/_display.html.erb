@@ -24,9 +24,16 @@
       <div class="value"><%= @vm.vrdp_server.ports %></div>
       <div class="break"></div>
     </div>
+    <% unless @vm.vrdp_server.net_address.blank? %>
+      <div class="data">
+        <div class="label">Net Address:</div>
+        <div class="value"><%= @vm.vrdp_server.net_address %></div>
+        <div class="break"></div>
+      </div>
+    <% end %>
     <div class="data">
-      <div class="label">Authentication Method:</div>
-      <div class="value"><%= @vm.vrdp_server.auth_type %></div>
+      <div class="label">Authentication Type:</div>
+      <div class="value"><%= I18n.t("vm.auth_types.#{@vm.vrdp_server.auth_type}") %></div>
       <div class="break"></div>
     </div>
     <div class="data">
@@ -34,8 +41,17 @@
       <div class="value"><%= @vm.vrdp_server.auth_timeout %></div>
       <div class="break"></div>
     </div>
+    <div class="data">
+      <div class="label">Allow Multiple Connections:</div>
+      <div class="value"><%= formatted_state_from(@vm.vrdp_server.allow_multi_connection) %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Reuse Single Connections:</div>
+      <div class="value"><%= formatted_state_from(@vm.vrdp_server.reuse_single_connection) %></div>
+      <div class="break"></div>
+    </div>
   <% else %>
     <div class="data">Disabled</div>
   <% end %>
-
 </div>
