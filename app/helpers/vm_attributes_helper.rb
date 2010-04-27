@@ -45,6 +45,15 @@ module VmAttributesHelper
     content_tag(:span, "Number of virtual CPUs in the VM.".html_safe)
   end
 
+  def vtx_description
+    content_tag(:span, "Whether hardware virtualization (VT-x/AMD-V) is enabled.".html_safe)
+  end
+
+  def nested_paging_description
+    content_tag(:span, "Whether Nested Paging is enabled.<br /><br />
+    If this extension is not available, it will not be used.".html_safe)
+  end
+
   def vram_size_description
     content_tag(:span, "Video memory size in megabytes.".html_safe)
   end

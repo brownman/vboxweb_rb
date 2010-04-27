@@ -42,12 +42,12 @@
   <div class="heading">Acceleration</div>
   <div class="data">
     <div class="label">VT-x/AMD-V:</div>
-    <div class="value"><%= formatted_state_from(@vm.interface.get_hw_virt_ex_property(:enabled)) %></div>
+    <div class="value"><%= formatted_state_from(@vm.hw_virt.enabled) %></div>
     <div class="break"></div>
   </div>
   <div class="data">
     <div class="label">Nested Paging:</div>
-    <div class="value"><%= formatted_state_from(@vm.interface.get_hw_virt_ex_property(:nested_paging)) %></div>
+    <div class="value"><%= formatted_state_from(@vm.hw_virt.nested_paging) %></div>
     <div class="break"></div>
   </div>
 </div>

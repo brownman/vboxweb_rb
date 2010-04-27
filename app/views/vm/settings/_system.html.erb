@@ -53,4 +53,22 @@
     </div>
     <div class="break"></div>
   </div>
+
+  <div class="heading">Acceleration</div>
+  <div class="data">
+    <div class="label">VT-x/AMD-V: <%= vtx_description %></div>
+    <div class="value">
+      <%= radio_button_tag('settings[hw_virt][enabled]', true, @vm.hw_virt.enabled) %> Enabled
+      <%= radio_button_tag('settings[hw_virt][enabled]', false, !@vm.hw_virt.enabled) %> Disabled
+    </div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Nested Paging: <%= nested_paging_description %></div>
+    <div class="value">
+      <%= radio_button_tag('settings[hw_virt][nested_paging]', true, @vm.hw_virt.nested_paging) %> Enabled
+      <%= radio_button_tag('settings[hw_virt][nested_paging]', false, !@vm.hw_virt.nested_paging) %> Disabled
+    </div>
+    <div class="break"></div>
+  </div>
 </fieldset>
