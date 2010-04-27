@@ -35,7 +35,12 @@
   </div>
   <div class="data">
     <div class="label">PAE/NX:</div>
-    <div class="value"><%= formatted_state_from(@vm.interface.get_cpu_property(:pae)) %></div>
+    <div class="value"><%= formatted_state_from(@vm.cpu.pae) %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Synthetic:</div>
+    <div class="value"><%= formatted_state_from(@vm.cpu.synthetic) %></div>
     <div class="break"></div>
   </div>
 
