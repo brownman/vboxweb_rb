@@ -53,6 +53,22 @@
     </div>
     <div class="break"></div>
   </div>
+  <div class="data">
+    <div class="label">PAE/NX:</div>
+    <div class="value">
+      <%= radio_button_tag('settings[cpu][pae]', true, @vm.cpu.pae) %> Enabled
+      <%= radio_button_tag('settings[cpu][pae]', false, !@vm.cpu.pae) %> Disabled
+    </div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Synthetic:</div>
+    <div class="value">
+      <%= radio_button_tag('settings[cpu][synthetic]', true, @vm.cpu.synthetic) %> Enabled
+      <%= radio_button_tag('settings[cpu][synthetic]', false, !@vm.cpu.synthetic) %> Disabled
+    </div>
+    <div class="break"></div>
+  </div>
 
   <div class="heading">Acceleration</div>
   <div class="data">
