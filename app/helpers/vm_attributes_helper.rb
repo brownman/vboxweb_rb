@@ -45,6 +45,18 @@ module VmAttributesHelper
     content_tag(:span, "Number of virtual CPUs in the VM.".html_safe)
   end
 
+  def pae_description
+    content_tag(:span, "This setting determines whether VirtualBox will expose the
+    Physical Address Extension (PAE) feature of the host CPU to the guest.<br /><br />
+    Note that in case PAE is not available, it will not be reported.".html_safe)
+  end
+
+  def synthetic_description
+    content_tag(:span, "This setting determines whether VirtualBox will expose a
+    synthetic CPU to the guest to allow teleporting between host systems that
+    differ significantly. ".html_safe)
+  end
+
   def vtx_description
     content_tag(:span, "Whether hardware virtualization (VT-x/AMD-V) is enabled.".html_safe)
   end
