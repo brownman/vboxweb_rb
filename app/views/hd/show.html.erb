@@ -37,12 +37,12 @@
   </div>
 </div>
 
-<% if vms_on_this_hd.size > 0 %>
+<% if @hd.machines.size > 0 %>
 <div id="display" class="data_box">
   <div class="heading">
-    <%= pluralize(vms_on_this_hd.size, 'Virtual Machine') %> on this Hard Drive
+    <%= pluralize(@hd.machines.size, 'Virtual Machine') %> on this Hard Drive
   </div>
-  <% vms_on_this_hd.each do |vm| %>
+  <% @hd.machines.each do |vm| %>
   <div class="data">
     <div class="label"><%= link_to(vm.name, "/vm/#{vm.uuid}") %></div>
     <div class="value"><%= vm.description %></div>
