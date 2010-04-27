@@ -25,14 +25,14 @@
   </div>
   <% end %>
 
-  <% if @vm.running? || @vm.state == :starting %>
+  <% if @vm.running? || @vm.starting? %>
   <div class="action">
     <div class="icon"><%= link_to(vbicon('controls/vm/shutdown_16px', 'Shutdown'), "/vm/#{@vm.uuid}/shutdown") %></div>
     <div class="label"><%= link_to('Shutdown', "/vm/#{@vm.uuid}/shutdown") %></div>
   </div>
   <% end %>
 
-  <% if @vm.running? || @vm.paused? || @vm.state == :starting %>
+  <% if @vm.running? || @vm.paused? || @vm.starting? %>
   <div class="action">
     <div class="icon"><%= link_to(vbicon('controls/vm/poweroff_16px', 'Power off'), "/vm/#{@vm.uuid}/poweroff") %></div>
     <div class="label"><%= link_to('Power Off', "/vm/#{@vm.uuid}/poweroff") %></div>
@@ -44,7 +44,7 @@
   </div>
   <% end %>
 
-  <% if @vm.running? || @vm.state == :starting %>
+  <% if @vm.running? || @vm.starting? %>
   <div class="action">
     <div class="icon"><%= link_to(vbicon('controls/vm/pause_16px', 'Pause'), "/vm/#{@vm.uuid}/pause") %></div>
     <div class="label"><%= link_to('Pause', "/vm/#{@vm.uuid}/pause") %></div>
