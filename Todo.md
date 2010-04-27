@@ -11,7 +11,6 @@
 
 ## Hard Disks
 * Create a HD
-* Update a HD
 
 ## Miscellaneous
 * Virtual Machine Console (needs a flash or java based VRD console)
