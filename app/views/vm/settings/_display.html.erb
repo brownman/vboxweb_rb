@@ -29,4 +29,50 @@
     </div>
     <div class="break"></div>
   </div>
+
+  <div class="subheading">Remote Display</div>
+  <div class="data">
+    <div class="label">Enable VRDP Server: <%= vrdp_server_enabled_description %></div>
+    <div class="value">
+      <%= hidden_field_tag('settings[vrdp_server][enabled]', false) %>
+      <%= check_box_tag('settings[vrdp_server][enabled]', true, @vm.vrdp_server.enabled) %>
+    </div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Server Port: <%= vrdp_server_port_description %></div>
+    <div class="value"><%= text_field_tag('settings[vrdp_server][ports]', @vm.vrdp_server.ports) %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Net Address: <%= vrdp_server_net_address_description %></div>
+    <div class="value"><%= text_field_tag('settings[vrdp_server][net_address]', @vm.vrdp_server.net_address) %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Authentication Type: <%= vrdp_server_auth_type_description %></div>
+    <div class="value"><%= select_tag('settings[vrdp_server][auth_type]', options_for(:auth_types, @vm.vrdp_server.auth_type)) %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Authentication Timeout: <%= vrdp_server_auth_timeout_description %></div>
+    <div class="value"><%= text_field_tag('settings[vrdp_server][auth_timeout]', @vm.vrdp_server.auth_timeout) %></div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Allow Multiple Connections: <%= vrdp_server_allow_multi_connection_description %></div>
+    <div class="value">
+      <%= radio_button_tag('settings[vrdp_server][allow_multi_connection]', true, @vm.vrdp_server.allow_multi_connection) %> Yes
+      <%= radio_button_tag('settings[vrdp_server][allow_multi_connection]', false, !@vm.vrdp_server.allow_multi_connection) %> No
+    </div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
+    <div class="label">Reuse Single Connections: <%= vrdp_server_reuse_single_connection_description %></div>
+    <div class="value">
+      <%= radio_button_tag('settings[vrdp_server][reuse_single_connection]', true, @vm.vrdp_server.reuse_single_connection) %> Yes
+      <%= radio_button_tag('settings[vrdp_server][reuse_single_connection]', false, !@vm.vrdp_server.reuse_single_connection) %> No
+    </div>
+    <div class="break"></div>
+  </div>
 </fieldset>

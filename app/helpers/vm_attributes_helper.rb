@@ -80,6 +80,41 @@ module VmAttributesHelper
     to make use of the 2D video acceleration support available on the host. ".html_safe)
   end
 
+  def vrdp_server_enabled_description
+    content_tag(:span, "VRDP server status.".html_safe)
+  end
+
+  def vrdp_server_port_description
+    content_tag(:span, "VRDP server port numbers.<br /><br />
+    The server will try to bind to one of free ports from the list.<br /><br />
+    This is a string of comma separated TCP port numbers or port number ranges.<br /><br />
+    Example 5000,5010-5012,5015".html_safe)
+  end
+
+  def vrdp_server_net_address_description
+    content_tag(:span, "VRDP server address.".html_safe)
+  end
+
+  def vrdp_server_auth_type_description
+    content_tag(:span, "VRDP authentication method.".html_safe)
+  end
+
+  def vrdp_server_auth_timeout_description
+    content_tag(:span, "Timeout for guest authentication.<br /><br />
+    Value is in milliseconds.".html_safe)
+  end
+
+  def vrdp_server_allow_multi_connection_description
+    content_tag(:span, "Flag whether multiple simultaneous connections to the VM are
+    permitted.".html_safe)
+  end
+
+  def vrdp_server_reuse_single_connection_description
+    content_tag(:span, "Flag whether the existing connection must be dropped and a new
+    connection must be established by the VRDP server, when a new client connects in
+    single connection mode.".html_safe)
+  end
+
   def audio_enabled_description
     content_tag(:span, "Whether the audio adapter is present in the guest system.<br /><br />
     If disabled, the virtual guest hardware will not contain any audio adapter.".html_safe)

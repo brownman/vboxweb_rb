@@ -13,11 +13,13 @@ class VmController < ApplicationController
         bios_settings = vm_settings.delete(:bios)
         hw_virt_settings = vm_settings.delete(:hw_virt)
         cpu_settings = vm_settings.delete(:cpu)
+        vrdp_server_settings = vm_settings.delete(:vrdp_server)
 
         audio_settings.each { |attribute, value| @vm.audio_adapter.send("#{attribute}=", value) }
         bios_settings.each { |attribute, value| @vm.bios.send("#{attribute}=", value) }
         hw_virt_settings.each { |attribute, value| @vm.hw_virt.send("#{attribute}=", value) }
         cpu_settings.each { |attribute, value| @vm.cpu.send("#{attribute}=", value) }
+        vrdp_server_settings.each { |attribute, value| @vm.vrdp_server.send("#{attribute}=", value) }
         vm_settings.each { |attribute, value| @vm.send("#{attribute}=", value) }
 
         @vm.save
@@ -26,7 +28,6 @@ class VmController < ApplicationController
       rescue VirtualBox::Exceptions::InvalidObjectStateException => e
         flash[:error] = "Cannot update settings because the virtual machine is either running, paused, or someone is already editing it."
         redirect_to vm_path
-
       end
     end
   end
@@ -73,11 +74,13 @@ class VmController < ApplicationController
 
   def convert_settings_in(params)
     params.each do |attribute, value|
+      next if attribute == 'ports' # ports needs to remain a string of numbers
+
       if value.is_a?(Hash)
         value = convert_settings_in(value)
       else
         case value
-        when /^\d/ then value = value.to_i
+        when /^\d+$/ then value = value.to_i
         when 'true' then value = true
         when 'false' then value = false
         end
