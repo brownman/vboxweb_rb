@@ -24,7 +24,7 @@ en:
       floppy: Floppy
       hard_disk: Hard Disk
       network: Network
-      null: None
+      'null': None
     network_adapter_types:
       Am79C970A: PCnet-PCI II
       Am79C973: PCnet-FAST III
