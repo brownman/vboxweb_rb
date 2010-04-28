@@ -9,17 +9,13 @@ class VmController < ApplicationController
     if request.put?
       begin
         vm_settings = convert_settings_in(params[:settings])
-        audio_settings = vm_settings.delete(:audio_adapter)
-        bios_settings = vm_settings.delete(:bios)
-        hw_virt_settings = vm_settings.delete(:hw_virt)
-        cpu_settings = vm_settings.delete(:cpu)
-        vrdp_server_settings = vm_settings.delete(:vrdp_server)
 
-        audio_settings.each { |attribute, value| @vm.audio_adapter.send("#{attribute}=", value) }
-        bios_settings.each { |attribute, value| @vm.bios.send("#{attribute}=", value) }
-        hw_virt_settings.each { |attribute, value| @vm.hw_virt.send("#{attribute}=", value) }
-        cpu_settings.each { |attribute, value| @vm.cpu.send("#{attribute}=", value) }
-        vrdp_server_settings.each { |attribute, value| @vm.vrdp_server.send("#{attribute}=", value) }
+        %w{ audio_adapter bios hw_virt cpu vrdp_server }.each do |setting_type|
+          settings = vm_settings.delete(setting_type.to_sym)
+          next unless settings
+          settings.each { |attribute, value| @vm.send(setting_type.to_sym).send("#{attribute}=", value) }
+        end
+
         vm_settings.each { |attribute, value| @vm.send("#{attribute}=", value) }
 
         @vm.save
