@@ -8,10 +8,6 @@ module ApplicationHelper
     vbicon("os/#{ostype.downcase}", ostype)
   end
 
-  def convert_from_bytes_to_gb(bytes)
-    sprintf("%.2f", (bytes.to_f / 1024 / 1024 / 1024))
-  end
-
   def convert_from_mb_to_gb(megabytes)
     sprintf("%.2f", (megabytes.to_f / 1024))
   end
