@@ -4,8 +4,8 @@
   <div class="data">
     <div class="label">Enable Audio: <%= audio_enabled_description %></div>
     <div class="value">
-      <%= check_box_tag('settings[audio_adapter][enabled]', true, @vm.audio_adapter.enabled) %>
       <%= hidden_field_tag('settings[audio_adapter][enabled]', false) %>
+      <%= check_box_tag('settings[audio_adapter][enabled]', true, @vm.audio_adapter.enabled) %>
     </div>
     <div class="break"></div>
   </div>
