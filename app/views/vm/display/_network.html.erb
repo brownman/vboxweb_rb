@@ -1,8 +1,9 @@
-<% hidden ||= false %>
-<div id="network" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
+<div id="network" class="data_box">
+  <div class="heading"><a name="network">Network</a></div>
+
   <% @vm.network_adapters.each_with_index do |network_adapter, index| %>
     <% next unless network_adapter.enabled %>
-    <div class="heading">
+    <div class="subheading">
       Adapter <%= index + 1 %>
       (<%= t("vm.network_attachment_types.#{network_adapter.attachment_type}") %> -
       <%= network_adapter.cable_connected ? 'connected' : 'not connected' %>)

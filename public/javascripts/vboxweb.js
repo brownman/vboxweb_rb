@@ -17,12 +17,20 @@ document.observe('dom:loaded', function() {
   });
 
   $$('a[data-view]').each(function(view_link) {
+    var view_type = view_link.readAttribute('data-view');
+
+    if (view_type == 'general') {
+      view_link.up('li').addClassName('current_view');
+    } else {
+      $(view_type).hide();
+    }
+    $$('.data_box .heading').each(function(data_box_heading) { data_box_heading.hide(); });
+
     view_link.observe('click', function(event) {
       $$('.data_box').each(function(data_box) { data_box.hide(); });
       $$('.current_view').each(function(view_link_container) {
         view_link_container.removeClassName('current_view')
       });
-      var view_type = view_link.readAttribute('data-view');
       view_link.up('li').addClassName('current_view');
       $(view_type).show();
       event.stop();

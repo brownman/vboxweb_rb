@@ -1,6 +1,7 @@
-<% hidden ||= false %>
-<div id="audio" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
-  <div class="heading">Audio Adapter</div>
+<div id="audio" class="data_box">
+  <div class="heading"><a name="audio">Audio</a></div>
+
+  <div class="subheading">Audio Adapter</div>
   <% if @vm.audio_adapter.enabled %>
     <div class="data">
       <div class="label">Host Audio Driver:</div>

@@ -1,6 +1,7 @@
-<% hidden ||= false %>
-<div id="system" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
-  <div class="heading">Motherboard</div>
+<div id="system" class="data_box">
+  <div class="heading"><a name="system">System</a></div>
+
+  <div class="subheading">Motherboard</div>
   <div class="data">
     <div class="label">Base Memory:</div>
     <div class="value"><%= number_with_delimiter(@vm.memory_size) %> MB</div>
@@ -27,7 +28,7 @@
     <div class="break"></div>
   </div>
 
-  <div class="heading">Processor</div>
+  <div class="subheading">Processor</div>
   <div class="data">
     <div class="label">Processor(s):</div>
     <div class="value"><%= number_with_delimiter(@vm.cpu_count) %></div>
@@ -44,7 +45,7 @@
     <div class="break"></div>
   </div>
 
-  <div class="heading">Acceleration</div>
+  <div class="subheading">Acceleration</div>
   <div class="data">
     <div class="label">VT-x/AMD-V:</div>
     <div class="value"><%= formatted_state_from(@vm.hw_virt.enabled) %></div>

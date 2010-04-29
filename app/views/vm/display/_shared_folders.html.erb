@@ -1,6 +1,7 @@
-<% hidden ||= false %>
-<div id="shared_folders" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
-  <div class="heading">Shared Folders</div>
+<div id="shared_folders" class="data_box">
+  <div class="heading"><a name="shared_folders">Shared Folders</a></div>
+
+  <div class="subheading">Shared Folders</div>
   <% if @vm.shared_folders.size == 0 %>
     <div class="data">
       <div class="label">None</div>

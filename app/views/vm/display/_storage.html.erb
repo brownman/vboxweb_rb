@@ -1,7 +1,8 @@
-<% hidden ||= false %>
-<div id="storage" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
+<div id="storage" class="data_box">
+  <div class="heading"><a name="storage">Storage</a></div>
+
   <% @vm.storage_controllers.each do |storage_controller| %>
-    <div class="heading"><%= storage_controller.name %> (<%= storage_controller.controller_type.to_s.upcase %>)</div>
+    <div class="subheading"><%= storage_controller.name %> (<%= storage_controller.controller_type.to_s.upcase %>)</div>
     <% storage_controller.medium_attachments.each_with_index do |medium_attachment, index| %>
       <div class="data">
         <div class="label"><%= storage_controller.name %> <%= index + 1 %>:</div>

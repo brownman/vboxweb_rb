@@ -1,0 +1,8 @@
+<div id="categories">
+  <ul>
+    <% buttons.each do |data_type| %>
+      <li><%= link_to data_type.humanize, "##{data_type}", { :id => "#{data_type}_view_link", :'data-view' => data_type } %></li>
+    <% end %>
+  </ul>
+  <div style="clear:both;"></div>
+</div>

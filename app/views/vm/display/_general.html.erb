@@ -1,6 +1,7 @@
-<% hidden ||= false %>
-<div id="general" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
-  <div class="heading">Basic</div>
+<div id="general" class="data_box">
+  <div class="heading"><a name="general">General</a></div>
+
+  <div class="subheading">Basic</div>
   <div class="data">
     <div class="label">Name:</div>
     <div class="value"><%= @vm.name %></div>
@@ -18,13 +19,13 @@
     <div class="break"></div>
   </div>
 
-  <div class="heading">Advanced</div>
+  <div class="subheading">Advanced</div>
   <div class="data">
     <div class="label">Snapshot Folder:</div>
     <div class="value"><%= @vm.snapshot_folder %></div>
     <div class="break"></div>
   </div>
 
-  <div class="heading">Description</div>
+  <div class="subheading">Description</div>
   <div class="data"><%= @vm.description.present? ? @vm.description : '(none)' %></div>
 </div>

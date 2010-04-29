@@ -4,6 +4,8 @@
   ( hover over any of the labels to get a description of what the value is for )
 </div>
 
+<%= render 'categories', :buttons => %w{ general system display audio } %>
+
 <div id="vm_properties">
   <%= form_tag(vm_settings_path, :method => :put) do %>
     <% %w{ general system display audio }.each do |data_type| %>

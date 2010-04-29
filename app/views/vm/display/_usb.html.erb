@@ -1,6 +1,7 @@
-<% hidden ||= false %>
-<div id="usb" class="data_box" <%=raw 'style="display:none;"' if hidden %>>
-  <div class="heading">USB Controllers</div>
+<div id="usb" class="data_box">
+  <div class="heading"><a name="usb">USB</a></div>
+
+  <div class="subheading">USB Controllers</div>
   <% if @vm.usb_controller.enabled %>
     <% @vm.usb_controller.interface.device_filters.each_with_index do |device_filter, index| %>
       <div class="data">
