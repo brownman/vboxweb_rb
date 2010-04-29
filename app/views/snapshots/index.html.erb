@@ -1,0 +1,30 @@
+<h2 class="heading">Viewing Snapshots for <%= @vm.name %></h2>
+
+<div id="actions">
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/vm/take_snapshot_16px', 'Take Snapshot'), vm_new_snapshot_path) %></div>
+    <div class="label"><%= link_to('Take Snapshot', vm_new_snapshot_path) %></div>
+  </div>
+
+  <div class="action refresh">
+    <div class="icon"><%= link_to(vbicon('controls/vm/refresh_16px', 'Refresh'), "") %></div>
+    <div class="label"><%= link_to('Refresh', "") %></div>
+  </div>
+
+  <div style="clear:both;"></div>
+</div>
+
+<h3>What are snapshots?</h3>
+<p>
+  Snapshots are a simple and effective way of capturing an operating system at the time it
+  is taken. Perhaps you need to install something on the operating system, and you're not
+  sure if it'll go smoothly. Creating a snapshot will ensure that if something goes wrong,
+  you can easily revert to a snapshot you've taken.
+</p>
+
+<h3>Current Snapshot Tree</h3>
+<% if @vm.root_snapshot %>
+  <%=raw snapshot_tree_from(@vm.root_snapshot, @vm.current_snapshot) %>
+<% else %>
+  <p>No snapshots available.</p>
+<% end %>

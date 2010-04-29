@@ -1,0 +1,12 @@
+<h2 class="heading">Are you sure you want to do this?</h2>
+
+<p>Deleting a snapshot will cause the state information saved in it to be lost, and
+  disk data spread over several image files that VirtualBox has created together with
+  the snapshot will be merged into one file. This can be a lengthy process, and the
+  information in the snapshot cannot be recovered.</p>
+
+<p>Are you sure you want to do this?</p>
+
+<%= form_tag(vm_snapshot_destroy_path, :method => :delete) do %>
+  <%= submit_tag "Yes, I'm sure." %>
+<% end %>

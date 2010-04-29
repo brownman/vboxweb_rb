@@ -360,6 +360,30 @@ body {
     text-align: center;
     margin-top: 35px;
   }
+
+  #snapshots_tree {
+    li {
+      list-style-image: url(/images/virtualbox/icons/snapshot_16px.png);
+      margin-top: 4px;
+
+      a {
+        color: #000;
+      }
+    }
+
+    .current_parent,
+    .current_state {
+      font-weight: bold;
+
+      ul {
+        font-weight: normal;
+      }
+    }
+
+    .current_state {
+      list-style-image: url(/images/virtualbox/icons/current_state_16px.png);
+    }
+  }
 }
 
 #footer {

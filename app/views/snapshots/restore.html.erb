@@ -1,0 +1,9 @@
+<h2 class="heading">Are you sure you want to do this?</h2>
+
+<p>Restoring a snapshot will cause you to lose you current machine state, which cannot be recovered.</p>
+
+<p>Are you sure you want to do this?</p>
+
+<%= form_tag(vm_snapshot_restore_path, :method => :put) do %>
+  <%= submit_tag "Yes, I'm sure." %>
+<% end %>

@@ -1,0 +1,28 @@
+<h2 class="heading">Viewing Snapshot: <%= @snapshot.name %></h2>
+
+<div id="actions">
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/vm/restore_snapshot_16px', 'Restore Snapshot'), vm_snapshot_restore_path) %></div>
+    <div class="label"><%= link_to('Restore Snapshot', vm_snapshot_restore_path) %></div>
+  </div>
+
+  <div class="action">
+    <div class="icon"><%= link_to(vbicon('controls/vm/delete_snapshot_16px', 'Delete Snapshot'), vm_snapshot_destroy_path) %></div>
+    <div class="label"><%= link_to('Delete Snapshot', vm_snapshot_destroy_path) %></div>
+  </div>
+
+  <div class="action refresh">
+    <div class="icon"><%= link_to(vbicon('controls/vm/refresh_16px', 'Refresh'), "") %></div>
+    <div class="label"><%= link_to('Refresh', "") %></div>
+  </div>
+
+  <div style="clear:both;"></div>
+</div>
+
+<%= render 'vm/categories', :buttons => %w{ general system display storage audio network usb shared_folders } %>
+
+<div id="vm_properties">
+  <% %w{ general system display storage audio network usb shared_folders }.each do |data_type| %>
+    <%= render "vm/display/#{data_type}" %>
+  <% end %>
+</div>

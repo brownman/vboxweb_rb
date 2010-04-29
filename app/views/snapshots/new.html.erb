@@ -1,0 +1,21 @@
+<h2 class="heading">Take Snapshot of <%= @vm.name %></h2>
+
+<%= form_tag(vm_new_snapshot_path, :method => :post) do %>
+
+  <fieldset class="data_box">
+    <legend class="heading">Snapshot Settings</legend>
+    <div class="data">
+      <div class="label">Snapshot Name:</div>
+      <div class="value"><%= text_field_tag('snapshot[name]') %></div>
+      <div class="break"></div>
+    </div>
+    <div class="data">
+      <div class="label">Snapshot Description:</div>
+      <div class="value"><%= text_area_tag('snapshot[description]', nil, :rows => 4, :cols => 18) %></div>
+      <div class="break"></div>
+    </div>
+  </fieldset>
+
+  <%= submit_tag 'Create Snapshot' %>
+
+<% end %>

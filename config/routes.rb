@@ -12,6 +12,12 @@ VboxwebRb::Application.routes.draw do |map|
   match 'vm/:uuid/exports/:id/destroy'  => 'export#destroy',  :as => 'vm_export_destroy'
   match 'vm/:uuid/exports/:id'          => 'export#show',     :as => 'vm_export'
 
+  match 'vm/:uuid/snapshots'             => 'snapshots#index',   :as => 'vm_snapshots'
+  match 'vm/:uuid/snapshots/new'         => 'snapshots#new',     :as => 'vm_new_snapshot'
+  match 'vm/:uuid/snapshots/:id/restore' => 'snapshots#restore', :as => 'vm_snapshot_restore'
+  match 'vm/:uuid/snapshots/:id/destroy' => 'snapshots#destroy', :as => 'vm_snapshot_destroy'
+  match 'vm/:uuid/snapshots/:id'         => 'snapshots#show',    :as => 'vm_snapshot'
+
   match 'vm/:uuid/settings' => 'vm#settings', :as => 'vm_settings'
   match 'vm/:uuid/destroy'  => 'vm#destroy',  :as => 'vm_destroy'
   match 'vm/:uuid/:command' => 'vm#control',  :as => 'vm_control'
