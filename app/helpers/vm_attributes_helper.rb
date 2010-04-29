@@ -32,6 +32,10 @@ module VmAttributesHelper
     content_tag(:span, "Initial memory balloon size in megabytes.".html_safe)
   end
 
+  def boot_order_description
+    content_tag(:span, "The order in which medium attachments should boot.".html_safe)
+  end
+
   def acpi_enabled_description
     content_tag(:span, "ACPI support flag.".html_safe)
   end

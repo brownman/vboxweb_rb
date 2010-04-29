@@ -25,6 +25,15 @@
     <div class="break"></div>
   </div>
   <div class="data">
+    <div class="label">Boot Order: <%= boot_order_description %></div>
+    <div class="value">
+      <% @vm.boot_order.each_with_index do |boot_order, index| %>
+        <%= select_tag("settings[boot_order][]", options_for(:boot_types, boot_order)) %><br />
+      <% end %>
+    </div>
+    <div class="break"></div>
+  </div>
+  <div class="data">
     <div class="label">ACPI: <%= acpi_enabled_description %></div>
     <div class="value">
       <%= radio_button_tag('settings[bios][acpi_enabled]', true, @vm.bios.acpi_enabled) %> Enabled
