@@ -19,7 +19,9 @@ document.observe('dom:loaded', function() {
   $$('a[data-view]').each(function(view_link) {
     var view_type = view_link.readAttribute('data-view');
 
-    if (view_type == 'general') {
+    var current_open_view = window.location.hash || 'general'
+    var re = new RegExp('^#?' + view_type + '$');
+    if (current_open_view.match(re)) {
       view_link.up('li').addClassName('current_view');
     } else {
       $(view_type).hide();
@@ -33,6 +35,7 @@ document.observe('dom:loaded', function() {
       });
       view_link.up('li').addClassName('current_view');
       $(view_type).show();
+      window.location.hash = view_type;
       event.stop();
     });
   });
