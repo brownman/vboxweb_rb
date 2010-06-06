@@ -32,13 +32,26 @@ class Export < ActiveRecord::Base
     @filepath ||= Rails.root.join('exports', filename, filename+".ovf").to_s
   end
 
+  def valid_export_data_keys
+    %w{ description product product_url vendor vendor_url version license }
+  end
+
+  def export_options
+    options = Hash.new
+    export_data.each do |key, value|
+      next unless valid_export_data_keys.include?(key.to_s) && value.present?
+      options[key.to_sym] = value
+    end
+    options
+  end
+
   def export!
     unless machine.powered_off?
       update_attribute(:status, 'failed')
       return false
     end
     update_attribute(:status, 'exporting')
-    machine.export(filepath) do |progress|
+    machine.export(filepath, export_options) do |progress|
       update_attribute(:percent_exported, progress.percent)
     end
     update_attribute(:status, 'packaging')
