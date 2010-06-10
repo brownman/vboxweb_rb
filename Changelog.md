@@ -11,6 +11,8 @@
 * Added a couple more Virtual Machine settings to the display page and restore some removed in 0.2.0
 * Added tooltips to the Virtual Machine edit settings page labels (hover over "Name" to see what you need to put there)
 * Fixed a bug that left the Virtual Machine controls panel blank right after starting the machine
+* Able to pass in additional settings to a VM export again
+* Support for Rails 3 Beta 4
 * Big internal code cleanup
 
 ## 0.2.0

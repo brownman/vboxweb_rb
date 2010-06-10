@@ -9,5 +9,4 @@ gem 'less'
 gem 'delayed_job'
 gem 'archive-tar-minitar', '0.5.2'
 
-#gem 'virtualbox', '0.6.1'
-gem 'virtualbox', :path => '/Users/kieran/Work/mitchellh-virtualbox'
+gem 'virtualbox', '0.7.0'
