@@ -1,9 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.beta3'
-gem 'mongrel'
-gem 'less'
-gem 'virtualbox', '0.6.1'
-gem 'delayed_job'
+gem 'rails', '3.0.0.beta4'
 gem 'sqlite3-ruby', :require => 'sqlite3'
+
+gem 'mongrel'
+
+gem 'less'
+gem 'delayed_job'
 gem 'archive-tar-minitar', '0.5.2'
+
+#gem 'virtualbox', '0.6.1'
+gem 'virtualbox', :path => '/Users/kieran/Work/mitchellh-virtualbox'
