@@ -74,15 +74,16 @@ class Export < ActiveRecord::Base
     unless File.exist?(packaged_file_path)
       require 'zlib'
       require 'archive/tar/minitar'
-      exported_files = Dir.glob(File.join(packaged_dir_path, "**", "*"))
-      File.open(packaged_file_path, 'wb') do |tar|
-        ::Archive::Tar::Minitar::Output.open(tar) do |output|
-          Dir.chdir(packaged_dir_path) do
-            exported_files.each { |f| ::Archive::Tar::Minitar.pack_file(f, output) }
+      Dir.chdir(packaged_dir_path) do
+        exportable_files = Dir.glob('*')
+        File.open(packaged_file_path, 'wb') do |tar|
+          ::Archive::Tar::Minitar::Output.open(tar) do |output|
+            exportable_files.each { |f| ::Archive::Tar::Minitar.pack_file(f, output) }
           end
         end
       end
     end
+
     packaged_file_path
   end
 
