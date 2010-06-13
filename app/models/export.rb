@@ -95,10 +95,10 @@ class Export < ActiveRecord::Base
 
   def validate
     if filename.blank?
-      errors.add_to_base("You must specify a filename to export to.")
+      errors[:base] << "You must specify a filename to export to."
       false
     elsif File.directory?(packaged_dir_path)
-      errors.add_to_base("Export of this name already exists. Please choose another.")
+      errors[:base] << "Export of this name already exists. Please choose another."
       false
     else
       true
