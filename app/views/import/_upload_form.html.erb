@@ -1,0 +1,13 @@
+<p>Please upload an archive (tar, gzip, or bzip) containing the OVF, MF, and VMDK/VDI files of the machine you want to import.</p>
+
+<%= form_tag(vm_upload_import_path, :method => :post, :multipart => true) do %>
+
+  <fieldset class="data_box">
+    <div class="data">
+      <%= file_field_tag('import_archive_file', :class => 'import_upload_field') %>
+    </div>
+  </fieldset>
+
+  <%= submit_tag 'Upload Import Archive', :class => 'submit_button' %>
+
+<% end %>

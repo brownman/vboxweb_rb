@@ -1,5 +1,5 @@
 class ImportController < ApplicationController
-  before_filter :find_import_from_id, :except => [:index, :new]
+  before_filter :find_import_from_id, :except => [:index, :new, :upload]
 
   def index
   end
@@ -14,6 +14,18 @@ class ImportController < ApplicationController
         import.import!
         flash[:notice] = "The supplied import path is now importing. You can see the progress of that import below."
         redirect_to vm_import_path(:id => import.id)
+      else
+        flash[:error] = import.errors.full_messages.join(', ')
+      end
+    end
+  end
+
+  def upload
+    if request.post?
+      import = Import.new
+      if import.upload(params[:import_archive_file])
+        flash[:notice] = "The supplied import archive has been uploaded. You can now proceed to import the Virtual Machine it contains."
+        redirect_to vm_imports_path
       else
         flash[:error] = import.errors.full_messages.join(', ')
       end

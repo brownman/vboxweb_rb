@@ -1,14 +1,22 @@
 <h2 class="heading">Import a Virtual Machine</h2>
 
-<h3>Import from a template</h3>
-<ul>
-<% Dir[Rails.root.join('imports/**/*.ovf').to_s].each do |file| %>
-  <li><%= link_to File.basename(file), vm_new_import_path(:import => { :filepath => file }) %></li>
+<h3>Available Imports</h3>
+<% files = Dir[Rails.root.join('imports/**/*.ovf').to_s] %>
+<% if files.size > 0 %>
+  <ul>
+  <% Dir[Rails.root.join('imports/*/*.ovf').to_s].each do |file| %>
+    <li><%= link_to File.basename(file), vm_new_import_path(:import => { :filepath => file }) %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <p>No imports available.</p>
 <% end %>
-</ul>
 
 <h3>Create Import from Filepath</h3>
 <%= render 'form' %>
+
+<h3>Upload Import Archive</h3>
+<%= render 'upload_form' %>
 
 <% previous_imports = Import.all %>
 <% if previous_imports.size > 0 %>

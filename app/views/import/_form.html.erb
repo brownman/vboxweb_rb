@@ -1,13 +1,15 @@
+<p>You must point the filepath to a valid OVF file, with it's corresponding MF and VMDK/VDI files in the same directory.</p>
+
 <%= form_tag(vm_new_import_path, :method => :post) do %>
 
   <fieldset class="data_box">
     <div class="data">
-      <div class="label">Filepath: (to a valid ovf file)</div>
+      <div class="label">Filepath:</div>
       <div class="value"><%= text_field_tag('import[filepath]', (params[:import][:filepath] if params[:import]), :size => 60) %></div>
       <div class="break"></div>
     </div>
   </fieldset>
 
-  <%= submit_tag 'Import Virtual Machine' %>
+  <%= submit_tag 'Import Virtual Machine', :class => 'submit_button' %>
 
 <% end %>
