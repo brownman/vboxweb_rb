@@ -5,9 +5,9 @@
 * Snapshots (view, create, restore, destroy)
 * Release and Remove Hard Drives
 * Pushed Virtual Machine export to a background process. This adds an extra installation step. Please see README.rdoc There is also a nice AJAX updater which displays a progress bar thanks to some recent changes in the VirtualBox gem that make it possible to get the current progress.
-* Added an Import functionality that uses the same progress update as Export
+* Added an Import functionality that uses the same progress update as Export (with ability to import uploaded archives, and to upload new import archives)
 * Added ability to remove exports or imports from the application using a delete link
-* Added ability to download exported Virtual Machines to a Vagrant compatible box file
+* Added ability to download exported Virtual Machines to a file compatible with Vboxweb_rb import functionality
 * Added a couple more Virtual Machine settings to the display page and restore some removed in 0.2.0
 * Added tooltips to the Virtual Machine edit settings page labels (hover over "Name" to see what you need to put there)
 * Fixed a bug that left the Virtual Machine controls panel blank right after starting the machine
