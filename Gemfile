@@ -5,8 +5,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'mongrel'
 
-gem 'less'
 gem 'delayed_job'
 gem 'archive-tar-minitar', '0.5.2'
 
-gem 'virtualbox', '0.7.0'
+gem 'virtualbox', '0.7.2'

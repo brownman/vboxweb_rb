@@ -7,7 +7,7 @@ exports
 imports
 log
 public/javascripts/cache/
-public/stylesheets
+public/stylesheets/cache/
 tmp
 
 /virtualbox*
